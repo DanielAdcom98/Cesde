@@ -88,16 +88,17 @@
     "programa": "Técnico Laboral en Asistente Administrativo",
     "prioridad": "P2",
     "meta": 120,
-    "inversion": 8.43,
-    "cpl": 11703,
-    "leads": 720,
-    "metaAds": 5.77,
-    "google": 1.18,
-    "tiktok": 1.48,
+    "inversion": 5.29,
+    "cpl": 3966,
+    "leads": 1333,
+    "metaAds": 3.0,
+    "google": 1.27,
+    "tiktok": 1.01,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -105,16 +106,17 @@
     "programa": "Técnico Laboral en Asistente en Desarrollo de Software",
     "prioridad": "P2",
     "meta": 90,
-    "inversion": 2.88,
-    "cpl": 5333,
-    "leads": 540,
-    "metaAds": 1.97,
-    "google": 0.4,
-    "tiktok": 0.51,
+    "inversion": 3.97,
+    "cpl": 3966,
+    "leads": 1000,
+    "metaAds": 2.25,
+    "google": 0.96,
+    "tiktok": 0.76,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -122,33 +124,17 @@
     "programa": "Técnico Laboral en Asistente en Diseño Gráfico",
     "prioridad": "P3",
     "meta": 60,
-    "inversion": 2.77,
-    "cpl": 7686,
-    "leads": 360,
-    "metaAds": 1.89,
-    "google": 0.39,
-    "tiktok": 0.49,
-    "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
-    }
-  },
-  {
-    "sede": "Bello",
-    "programa": "Técnico Laboral en Auxiliar de Seguridad Laboral",
-    "prioridad": "P3",
-    "meta": 60,
-    "inversion": 2.91,
-    "cpl": 8095,
-    "leads": 360,
-    "metaAds": 1.99,
-    "google": 0.41,
+    "inversion": 2.64,
+    "cpl": 3966,
+    "leads": 667,
+    "metaAds": 1.5,
+    "google": 0.64,
     "tiktok": 0.51,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -156,16 +142,17 @@
     "programa": "Técnico Laboral como Asistente Administrativo",
     "prioridad": "P1",
     "meta": 210,
-    "inversion": 6.4,
-    "cpl": 5082,
-    "leads": 1260,
-    "metaAds": 4.38,
-    "google": 0.9,
-    "tiktok": 1.12,
+    "inversion": 9.25,
+    "cpl": 3966,
+    "leads": 2333,
+    "metaAds": 5.25,
+    "google": 2.23,
+    "tiktok": 1.77,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -173,16 +160,17 @@
     "programa": "Técnico Laboral como Asistente como Desarrollo de Software",
     "prioridad": "P1",
     "meta": 315,
-    "inversion": 10.84,
-    "cpl": 5733,
-    "leads": 1890,
-    "metaAds": 7.41,
-    "google": 1.52,
-    "tiktok": 1.9,
+    "inversion": 13.88,
+    "cpl": 3966,
+    "leads": 3500,
+    "metaAds": 7.88,
+    "google": 3.35,
+    "tiktok": 2.66,
+    "vigente": "No",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -190,16 +178,17 @@
     "programa": "Técnico Laboral como Asistente Administrativo-Fast Track",
     "prioridad": "P3",
     "meta": 70,
-    "inversion": 2.13,
-    "cpl": 5082,
-    "leads": 420,
-    "metaAds": 1.46,
-    "google": 0.3,
-    "tiktok": 0.37,
+    "inversion": 3.08,
+    "cpl": 3966,
+    "leads": 778,
+    "metaAds": 1.75,
+    "google": 0.74,
+    "tiktok": 0.59,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -207,16 +196,17 @@
     "programa": "Técnico Laboral como Asistente como Desarrollo de Software- Fast Track",
     "prioridad": "P3",
     "meta": 70,
-    "inversion": 2.41,
-    "cpl": 5733,
-    "leads": 420,
-    "metaAds": 1.65,
-    "google": 0.34,
-    "tiktok": 0.42,
+    "inversion": 3.08,
+    "cpl": 3966,
+    "leads": 778,
+    "metaAds": 1.75,
+    "google": 0.74,
+    "tiktok": 0.59,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -224,16 +214,17 @@
     "programa": "Técnico Laboral como Asistente en Comercio Internacional",
     "prioridad": "P2",
     "meta": 120,
-    "inversion": 6.51,
-    "cpl": 9034,
-    "leads": 720,
-    "metaAds": 4.45,
-    "google": 0.91,
-    "tiktok": 1.14,
+    "inversion": 5.29,
+    "cpl": 3966,
+    "leads": 1333,
+    "metaAds": 3.0,
+    "google": 1.27,
+    "tiktok": 1.01,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -241,16 +232,17 @@
     "programa": "Técnico Laboral como Asistente en Contaduría",
     "prioridad": "P1",
     "meta": 175,
-    "inversion": 4.69,
-    "cpl": 4464,
-    "leads": 1050,
-    "metaAds": 3.21,
-    "google": 0.66,
-    "tiktok": 0.82,
+    "inversion": 7.71,
+    "cpl": 3966,
+    "leads": 1944,
+    "metaAds": 4.38,
+    "google": 1.86,
+    "tiktok": 1.48,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -258,16 +250,17 @@
     "programa": "Técnico Laboral como Asistente en Desarrollo de Software (D)",
     "prioridad": "P3",
     "meta": 35,
-    "inversion": 0.97,
-    "cpl": 4615,
-    "leads": 210,
-    "metaAds": 0.66,
-    "google": 0.14,
-    "tiktok": 0.17,
+    "inversion": 1.54,
+    "cpl": 3966,
+    "leads": 389,
+    "metaAds": 0.88,
+    "google": 0.37,
+    "tiktok": 0.3,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -275,16 +268,17 @@
     "programa": "Técnico Laboral como Asistente en Diseño de Modas",
     "prioridad": "P3",
     "meta": 50,
-    "inversion": 1.2,
-    "cpl": 4000,
-    "leads": 300,
-    "metaAds": 0.82,
-    "google": 0.17,
-    "tiktok": 0.21,
+    "inversion": 2.2,
+    "cpl": 3966,
+    "leads": 556,
+    "metaAds": 1.25,
+    "google": 0.53,
+    "tiktok": 0.42,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -292,16 +286,17 @@
     "programa": "Técnico Laboral como Asistente en Diseño Gráfico",
     "prioridad": "P1",
     "meta": 210,
-    "inversion": 7.49,
-    "cpl": 5942,
-    "leads": 1260,
-    "metaAds": 5.12,
-    "google": 1.05,
-    "tiktok": 1.31,
+    "inversion": 9.25,
+    "cpl": 3966,
+    "leads": 2333,
+    "metaAds": 5.25,
+    "google": 2.23,
+    "tiktok": 1.77,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -309,16 +304,17 @@
     "programa": "Técnico Laboral como Asistente en Electromecánica",
     "prioridad": "P3",
     "meta": 75,
-    "inversion": 2.47,
-    "cpl": 5495,
-    "leads": 450,
-    "metaAds": 1.69,
-    "google": 0.35,
-    "tiktok": 0.43,
+    "inversion": 3.3,
+    "cpl": 3966,
+    "leads": 833,
+    "metaAds": 1.88,
+    "google": 0.8,
+    "tiktok": 0.63,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -326,16 +322,17 @@
     "programa": "Técnico Laboral como Asistente en Logística de Centros de Distribución",
     "prioridad": "P3",
     "meta": 35,
-    "inversion": 1.68,
-    "cpl": 8000,
-    "leads": 210,
-    "metaAds": 1.15,
-    "google": 0.24,
-    "tiktok": 0.29,
+    "inversion": 1.54,
+    "cpl": 3966,
+    "leads": 389,
+    "metaAds": 0.88,
+    "google": 0.37,
+    "tiktok": 0.3,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -343,16 +340,17 @@
     "programa": "Técnico Laboral como Asistente en Mercadeo",
     "prioridad": "P2",
     "meta": 105,
-    "inversion": 3.76,
-    "cpl": 5974,
-    "leads": 630,
-    "metaAds": 2.58,
-    "google": 0.53,
-    "tiktok": 0.66,
+    "inversion": 4.63,
+    "cpl": 3966,
+    "leads": 1167,
+    "metaAds": 2.62,
+    "google": 1.12,
+    "tiktok": 0.89,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -360,16 +358,17 @@
     "programa": "Técnico Laboral como Asistente en Producción Audiovisual",
     "prioridad": "P2",
     "meta": 90,
-    "inversion": 2.97,
-    "cpl": 5507,
-    "leads": 540,
-    "metaAds": 2.03,
-    "google": 0.42,
-    "tiktok": 0.52,
+    "inversion": 3.97,
+    "cpl": 3966,
+    "leads": 1000,
+    "metaAds": 2.25,
+    "google": 0.96,
+    "tiktok": 0.76,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -377,16 +376,17 @@
     "programa": "Técnico Laboral como Asistente en Producción Fotográfica",
     "prioridad": "P3",
     "meta": 50,
-    "inversion": 0.9,
-    "cpl": 3002,
-    "leads": 300,
-    "metaAds": 0.62,
-    "google": 0.13,
-    "tiktok": 0.16,
+    "inversion": 2.2,
+    "cpl": 3966,
+    "leads": 556,
+    "metaAds": 1.25,
+    "google": 0.53,
+    "tiktok": 0.42,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -394,16 +394,17 @@
     "programa": "Técnico Laboral como Auxiliar en Publicación de Contenidos Digitales",
     "prioridad": "P2",
     "meta": 90,
-    "inversion": 4.31,
-    "cpl": 7983,
-    "leads": 540,
-    "metaAds": 2.95,
-    "google": 0.61,
+    "inversion": 3.97,
+    "cpl": 3966,
+    "leads": 1000,
+    "metaAds": 2.25,
+    "google": 0.96,
     "tiktok": 0.76,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -411,16 +412,17 @@
     "programa": "Técnico Laboral en Arte Culinario",
     "prioridad": "P1",
     "meta": 208,
-    "inversion": 5.23,
-    "cpl": 4190,
-    "leads": 1248,
-    "metaAds": 3.58,
-    "google": 0.73,
-    "tiktok": 0.92,
+    "inversion": 9.16,
+    "cpl": 3966,
+    "leads": 2311,
+    "metaAds": 5.2,
+    "google": 2.21,
+    "tiktok": 1.75,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -428,16 +430,17 @@
     "programa": "Técnico Laboral en Auxiliar Administrativo en Salud",
     "prioridad": "P2",
     "meta": 105,
-    "inversion": 2.63,
-    "cpl": 4170,
-    "leads": 630,
-    "metaAds": 1.8,
-    "google": 0.37,
-    "tiktok": 0.46,
+    "inversion": 4.63,
+    "cpl": 3966,
+    "leads": 1167,
+    "metaAds": 2.62,
+    "google": 1.12,
+    "tiktok": 0.89,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -445,16 +448,17 @@
     "programa": "Técnico Laboral en Auxiliar de Talento Humano",
     "prioridad": "P1",
     "meta": 140,
-    "inversion": 4.2,
-    "cpl": 5000,
-    "leads": 840,
-    "metaAds": 2.87,
-    "google": 0.59,
-    "tiktok": 0.74,
+    "inversion": 6.17,
+    "cpl": 3966,
+    "leads": 1556,
+    "metaAds": 3.5,
+    "google": 1.49,
+    "tiktok": 1.18,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -462,16 +466,17 @@
     "programa": "Técnico Laboral en Auxiliar en Enfermería",
     "prioridad": "P1",
     "meta": 150,
-    "inversion": 3.6,
-    "cpl": 4000,
-    "leads": 900,
-    "metaAds": 2.46,
-    "google": 0.51,
-    "tiktok": 0.63,
+    "inversion": 6.61,
+    "cpl": 3966,
+    "leads": 1667,
+    "metaAds": 3.75,
+    "google": 1.59,
+    "tiktok": 1.27,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -479,16 +484,17 @@
     "programa": "Técnico Laboral en Auxiliar en Servicios Farmacéuticos",
     "prioridad": "P2",
     "meta": 105,
-    "inversion": 2.83,
-    "cpl": 4492,
-    "leads": 630,
-    "metaAds": 1.94,
-    "google": 0.4,
-    "tiktok": 0.5,
+    "inversion": 4.63,
+    "cpl": 3966,
+    "leads": 1167,
+    "metaAds": 2.62,
+    "google": 1.12,
+    "tiktok": 0.89,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -496,16 +502,17 @@
     "programa": "Técnico Laboral en Pastelería y Arte Dulce",
     "prioridad": "P1",
     "meta": 182,
-    "inversion": 3.28,
-    "cpl": 3000,
-    "leads": 1092,
-    "metaAds": 2.24,
-    "google": 0.46,
-    "tiktok": 0.57,
+    "inversion": 8.02,
+    "cpl": 3966,
+    "leads": 2022,
+    "metaAds": 4.55,
+    "google": 1.93,
+    "tiktok": 1.54,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -513,16 +520,17 @@
     "programa": "Técnico Laboral en Soporte de Sistemas Informáticos",
     "prioridad": "P3",
     "meta": 70,
-    "inversion": 3.35,
-    "cpl": 7981,
-    "leads": 420,
-    "metaAds": 2.29,
-    "google": 0.47,
+    "inversion": 3.08,
+    "cpl": 3966,
+    "leads": 778,
+    "metaAds": 1.75,
+    "google": 0.74,
     "tiktok": 0.59,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -530,16 +538,17 @@
     "programa": "Técnico Laboral como Auxiliar Administrativo",
     "prioridad": "P2",
     "meta": 90,
-    "inversion": 5.4,
-    "cpl": 10000,
-    "leads": 540,
-    "metaAds": 3.7,
-    "google": 0.76,
-    "tiktok": 0.95,
+    "inversion": 3.97,
+    "cpl": 3966,
+    "leads": 1000,
+    "metaAds": 2.25,
+    "google": 0.96,
+    "tiktok": 0.76,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -547,16 +556,17 @@
     "programa": "Técnico Laboral como Auxiliar en Diseño Gráfico",
     "prioridad": "P3",
     "meta": 75,
-    "inversion": 2.99,
-    "cpl": 6643,
-    "leads": 450,
-    "metaAds": 2.05,
-    "google": 0.42,
-    "tiktok": 0.52,
+    "inversion": 3.3,
+    "cpl": 3966,
+    "leads": 833,
+    "metaAds": 1.88,
+    "google": 0.8,
+    "tiktok": 0.63,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -564,16 +574,17 @@
     "programa": "Técnico Laboral en Auxiliar en Análisis y Desarrollo de Software",
     "prioridad": "P3",
     "meta": 75,
-    "inversion": 3.29,
-    "cpl": 7299,
-    "leads": 450,
-    "metaAds": 2.25,
-    "google": 0.46,
-    "tiktok": 0.58,
+    "inversion": 3.3,
+    "cpl": 3966,
+    "leads": 833,
+    "metaAds": 1.88,
+    "google": 0.8,
+    "tiktok": 0.63,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   },
   {
@@ -581,33 +592,17 @@
     "programa": "Técnico Laboral en Auxiliar en Comercio Internacional",
     "prioridad": "P3",
     "meta": 30,
-    "inversion": 1.48,
-    "cpl": 8215,
-    "leads": 180,
-    "metaAds": 1.01,
-    "google": 0.21,
-    "tiktok": 0.26,
+    "inversion": 1.32,
+    "cpl": 3966,
+    "leads": 333,
+    "metaAds": 0.75,
+    "google": 0.32,
+    "tiktok": 0.25,
+    "vigente": "Si",
     "split": {
-      "Meta": 68,
-      "Google": 14,
-      "TikTok": 18
-    }
-  },
-  {
-    "sede": "General",
-    "programa": "Campaña general de demanda",
-    "prioridad": "P1",
-    "meta": 0,
-    "inversion": 24,
-    "cpl": 4696,
-    "leads": 5111,
-    "metaAds": 0,
-    "google": 14,
-    "tiktok": 10,
-    "split": {
-      "Meta": 0,
-      "Google": 58,
-      "TikTok": 42
+      "Meta": 57,
+      "Google": 24,
+      "TikTok": 19
     }
   }
 ];
@@ -662,6 +657,7 @@
           <div class="media-stack">${mediaLine('Meta', item.metaAds)}${mediaLine('Google', item.google)}${mediaLine('TikTok', item.tiktok)}</div>
           <div class="flow-leads">${item.leads.toLocaleString('es-CO')}</div>
           <div class="flow-cpl">${moneyCOP(item.cpl)}</div>
+          <div class="flow-status"><span class="status-pill ${item.vigente === 'Si' ? 'ok' : 'warn'}">${item.vigente}</span></div>
         </div>`;
       }).join('');
     }
@@ -669,11 +665,11 @@
 
 
     const brandMonths = [
-      {mes:'Abril', total:0, dooh:0, display:0, spotify:0, rol:'Sin pauta'},
-      {mes:'Mayo', total:12.7, dooh:7.8, display:3.4, spotify:1.5, rol:'Arranque'},
-      {mes:'Junio', total:12.7, dooh:7.8, display:3.4, spotify:1.5, rol:'Pico'},
-      {mes:'Julio', total:4.4, dooh:3.1, display:1.3, spotify:0, rol:'Sostenimiento'},
-      {mes:'Agosto', total:1.2, dooh:0.9, display:0.3, spotify:0, rol:'Cierre'}
+      {mes:'Abril', total:3.0, dooh:2.1, display:0.9, spotify:0, rol:'Arranque'},
+      {mes:'Mayo', total:10.0, dooh:7.0, display:3.0, spotify:0, rol:'Pico'},
+      {mes:'Junio', total:10.0, dooh:7.0, display:3.0, spotify:0, rol:'Pico'},
+      {mes:'Julio', total:4.0, dooh:2.8, display:1.2, spotify:0, rol:'Sostenimiento'},
+      {mes:'Agosto', total:1.0, dooh:0.7, display:0.3, spotify:0, rol:'Cierre'}
     ];
     const brandScreensData = [
       {zona:'Bello', pantalla:'Centro Comercial Puerta del Norte', peso:2.5},
@@ -720,7 +716,7 @@
       const screenContainer = document.getElementById('brandScreenRows');
       if (screenContainer) {
         if (formatFilter === 'Spotify') {
-          screenContainer.innerHTML = '<div class="brandflow-item"><div><strong>Spotify Ads</strong><small>Audio + banner companion para audiencias jóvenes y apoyadores</small></div><div class="num">Mayo<br>$1,50M</div><div class="num">Junio<br>$1,50M</div><div class="num">$3,0M</div></div>';
+          screenContainer.innerHTML = '<div class="flow-empty">Spotify Ads no tiene inversión asignada en el flow vigente.</div>';
           return;
         }
         screenContainer.innerHTML = screens.map((i, idx) => {
