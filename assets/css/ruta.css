@@ -1,6 +1,10 @@
 ﻿    :root {
-      --amarillo:#FFC000; --negro:#000; --gris-oscuro:#4F4F4F; --gris-medio:#9E9E9E;
-      --gris-claro:#F9F9F9; --gris-borde:#EAEAEA; --blanco:#FFF; --radius:8px;
+      --amarillo:#FFC000; --amarillo-soft:#FFF3D1; --negro:#111; --gris-oscuro:#4F4F4F; --gris-medio:#9E9E9E;
+      --gris-claro:#F7F7F8; --gris-borde:#ECECEE; --blanco:#FFF;
+      --radius:12px; --radius-lg:18px;
+      --shadow-sm:0 2px 10px rgba(17,17,17,.045);
+      --shadow-md:0 12px 34px rgba(17,17,17,.07);
+      --shadow-lg:0 24px 60px rgba(17,17,17,.10);
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family:'Poppins',sans-serif; background:var(--blanco); color:var(--gris-oscuro); overflow-x:hidden; line-height:1.6; }
@@ -455,3 +459,55 @@
       .index-toggle-btn { top:20px; right:20px; padding:8px 16px; font-size:.9rem; }
       .slide-counter { display:none; }
     }
+
+    /* ============================================================
+       Capa de modernización · línea gráfica CESDE (amarillo / negro)
+       Refina radios, sombras, transiciones y foco.
+       No modifica el layout ni las reglas responsive.
+       ============================================================ */
+    html { scroll-behavior:smooth; }
+    ::selection { background:var(--amarillo); color:var(--negro); }
+
+    /* Tarjetas claras: sombra suave + elevación al pasar el cursor */
+    .stat-card, .matrix-card, .arch-card, .method-card, .step-card,
+    .journey-step, .formula-step, .flat-card, .touchpoint, .insight-panel,
+    .team-card, .timeline-item, .lead-metric, .mini-card, .donut-card,
+    .bars-card, .month-card {
+      box-shadow:var(--shadow-sm);
+      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .stat-card:hover, .matrix-card:hover, .arch-card:hover, .method-card:hover,
+    .step-card:hover, .flat-card:hover, .touchpoint:hover, .journey-step:hover {
+      transform:translateY(-3px);
+      box-shadow:var(--shadow-md);
+    }
+
+    /* Superficies oscuras y destacadas: sombra más marcada */
+    .callout, .insight-panel.dark, .matrix-card.dark, .method-card.dark,
+    .flow-sidebar, .brandflow-sidebar {
+      box-shadow:var(--shadow-lg);
+    }
+    .audience-layout, .flow-board, .brand-card { box-shadow:var(--shadow-md); }
+
+    /* Chip/título amarillo con un ligero halo */
+    .slide-header { box-shadow:0 10px 26px rgba(255,192,0,.26); }
+
+    /* Controles de navegación más suaves y con estado de foco accesible */
+    .nav-btn, .index-toggle-btn, .filter-btn, .mix-tab {
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .nav-btn:hover:not(:disabled),
+    .filter-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-md); }
+    .index-toggle-btn:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(0,0,0,.18); }
+    .nav-btn:focus-visible, .index-toggle-btn:focus-visible,
+    .filter-btn:focus-visible, .mix-tab:focus-visible,
+    a:focus-visible {
+      outline:3px solid var(--amarillo);
+      outline-offset:2px;
+    }
+
+    /* Barra de progreso con glow sutil */
+    .progress-bar { box-shadow:0 0 14px rgba(255,192,0,.55); }
+
+    /* Tabla: encabezado redondeado dentro del contenedor */
+    .table-wrap { box-shadow:var(--shadow-sm); }

@@ -617,7 +617,240 @@
   margin-top: 10px;
 }
 
+/* === Barreras reales: evidencia WhatsApp === */
+.evidence-lead {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 22px;
+  align-items: stretch;
+  margin-top: 20px;
+}
+
+.barrier-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.barrier-row {
+  display: grid;
+  grid-template-columns: minmax(190px, 1.3fr) 92px minmax(170px, 1fr);
+  gap: 18px;
+  align-items: center;
+  background: var(--blanco);
+  border: 1px solid var(--gris-borde);
+  border-left: 5px solid var(--amarillo);
+  border-radius: var(--radius);
+  padding: 15px 20px;
+}
+
+.barrier-row .b-name strong {
+  display: block;
+  color: var(--negro);
+  font-size: .96rem;
+  line-height: 1.2;
+}
+
+.barrier-row .b-name span {
+  display: block;
+  color: var(--gris-medio);
+  font-size: .78rem;
+  margin-top: 4px;
+  line-height: 1.35;
+}
+
+.b-count {
+  text-align: center;
+}
+
+.b-count strong {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--negro);
+  line-height: 1;
+}
+
+.b-count span {
+  display: block;
+  margin-top: 4px;
+  font-size: .68rem;
+  color: var(--gris-medio);
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  font-weight: 700;
+}
+
+.b-track {
+  height: 10px;
+  background: #ededed;
+  border: 1px solid #e2e2e2;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.b-fill {
+  height: 100%;
+  background: var(--amarillo);
+  border-radius: 999px;
+  width: var(--w);
+}
+
+.b-fill.low { background: #d94f4f; }
+.b-fill.mid { background: #111; }
+
+.b-meter small {
+  display: block;
+  margin-top: 7px;
+  font-size: .74rem;
+  font-weight: 700;
+  color: var(--negro);
+}
+
+.b-meter small em {
+  font-style: normal;
+  color: var(--gris-medio);
+  font-weight: 600;
+}
+
+/* Prioridades accionables */
+.priority-list {
+  display: grid;
+  gap: 14px;
+}
+
+.priority-item {
+  display: grid;
+  grid-template-columns: 48px 1fr 130px;
+  gap: 20px;
+  align-items: center;
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  border-left: 5px solid var(--amarillo);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+}
+
+.priority-item .p-rank {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--negro);
+  color: var(--amarillo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.priority-item h4 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.priority-item p {
+  font-size: .84rem;
+  margin: 0;
+  color: var(--gris-oscuro);
+  line-height: 1.5;
+}
+
+.priority-item .p-metric {
+  text-align: right;
+}
+
+.priority-item .p-metric strong {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--negro);
+  line-height: 1;
+}
+
+.priority-item .p-metric span {
+  display: block;
+  margin-top: 5px;
+  font-size: .7rem;
+  color: var(--gris-medio);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+}
+
+/* Mensajes clave y acciones tácticas */
+.tactic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.tactic-card {
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  border-top: 5px solid var(--amarillo);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tactic-card .t-barrier {
+  display: inline-flex;
+  align-self: flex-start;
+  background: var(--negro);
+  color: var(--amarillo);
+  font-size: .66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.tactic-card .t-msg {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--negro);
+  line-height: 1.35;
+  margin: 0 0 12px;
+  padding-left: 14px;
+  border-left: 3px solid var(--amarillo);
+}
+
+.tactic-card .t-action {
+  font-size: .84rem;
+  color: var(--gris-oscuro);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.tactic-card .t-action strong {
+  color: var(--negro);
+}
+
 @media(max-width: 992px) {
+  .evidence-lead,
+  .tactic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .barrier-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .b-count { text-align: left; }
+
+  .priority-item {
+    grid-template-columns: 44px 1fr;
+    gap: 14px;
+  }
+
+  .priority-item .p-metric {
+    grid-column: 2;
+    text-align: left;
+  }
+
   .insight-grid,
   .audience-layout,
   .detail-grid,
