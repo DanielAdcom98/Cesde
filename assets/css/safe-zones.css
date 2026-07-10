@@ -1,0 +1,260 @@
+/* Safe Zones Meta & TikTok — extensión sobre ruta.css */
+:root {
+  --safe:#22a35b;
+  --safe-bg:rgba(34,163,91,.16);
+  --safe-line:#22a35b;
+  --danger:#d9542f;
+  --danger-bg:rgba(217,84,47,.10);
+}
+
+/* Portada */
+.cover-badges {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:26px;
+}
+.platform-tag {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--negro);
+  color:var(--amarillo);
+  padding:9px 16px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:.82rem;
+}
+.platform-tag.light {
+  background:var(--amarillo);
+  color:var(--negro);
+}
+
+/* Leyenda safe/danger */
+.zone-legend {
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  margin:2px 0 18px;
+}
+.zone-legend span {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:.82rem;
+  font-weight:600;
+  color:var(--gris-oscuro);
+}
+.legend-swatch {
+  width:26px;
+  height:16px;
+  border-radius:4px;
+  border:1px solid var(--gris-borde);
+}
+.legend-swatch.safe { background:var(--safe-bg); border:2px dashed var(--safe-line); }
+.legend-swatch.danger {
+  background-image:repeating-linear-gradient(45deg, rgba(217,84,47,.30) 0 7px, rgba(217,84,47,.08) 7px 14px);
+  border-color:rgba(217,84,47,.4);
+}
+
+/* Layout: mockup + specs */
+.zone-layout {
+  display:grid;
+  grid-template-columns:330px 1fr;
+  gap:34px;
+  align-items:start;
+  margin-top:6px;
+}
+
+.phone-wrap {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+  position:sticky;
+  top:0;
+}
+.phone {
+  position:relative;
+  width:300px;
+  aspect-ratio:9 / 16;
+  border-radius:34px;
+  overflow:hidden;
+  background:linear-gradient(160deg,#3b4150,#20242d);
+  border:9px solid #111;
+  box-shadow:var(--shadow-lg);
+}
+.phone::after {
+  content:"";
+  position:absolute;
+  top:12px;
+  left:50%;
+  transform:translateX(-50%);
+  width:78px;
+  height:6px;
+  border-radius:999px;
+  background:rgba(255,255,255,.4);
+  z-index:7;
+}
+.phone-creative {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:rgba(255,255,255,.32);
+  font-weight:700;
+  font-size:.9rem;
+  letter-spacing:.5px;
+  text-transform:uppercase;
+  background-color:#20242d;
+  background-image:
+    radial-gradient(circle at 30% 25%, rgba(255,192,0,.22), transparent 45%),
+    linear-gradient(160deg,#3b4150,#20242d);
+  background-size:cover;
+  background-position:center center;
+}
+.phone-creative.has-img { background-image:none; }
+.zone-danger {
+  position:absolute;
+  z-index:2;
+  background-color:var(--danger-bg);
+  background-image:repeating-linear-gradient(45deg, rgba(217,84,47,.28) 0 7px, transparent 7px 14px);
+}
+.zone-safe {
+  position:absolute;
+  z-index:3;
+  border:2px dashed var(--safe-line);
+  background:var(--safe-bg);
+  border-radius:6px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+}
+.zone-safe b {
+  margin-top:10px;
+  background:var(--safe);
+  color:#fff;
+  font-size:.6rem;
+  font-weight:700;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+  padding:4px 9px;
+  border-radius:999px;
+}
+.ui-chip {
+  position:absolute;
+  z-index:5;
+  background:rgba(17,17,17,.82);
+  color:#fff;
+  font-size:.6rem;
+  font-weight:600;
+  line-height:1.3;
+  padding:5px 8px;
+  border-radius:6px;
+  text-align:center;
+  max-width:82%;
+}
+.ui-chip.right {
+  right:8px;
+  top:50%;
+  transform:translateY(-50%);
+  writing-mode:vertical-rl;
+  max-width:none;
+}
+.phone-caption {
+  font-size:.78rem;
+  color:var(--gris-medio);
+  font-weight:600;
+  text-align:center;
+}
+
+/* Specs */
+.spec-list { display:grid; gap:12px; }
+.spec-row {
+  display:grid;
+  grid-template-columns:118px 1fr;
+  gap:16px;
+  align-items:start;
+  background:var(--gris-claro);
+  border:1px solid var(--gris-borde);
+  border-left:5px solid var(--amarillo);
+  border-radius:var(--radius);
+  padding:14px 18px;
+}
+.spec-key { display:flex; flex-direction:column; gap:3px; }
+.spec-key strong { color:var(--negro); font-size:.9rem; }
+.spec-key small { color:var(--gris-medio); font-weight:600; font-size:.72rem; }
+.spec-row p { margin:0; font-size:.85rem; line-height:1.5; }
+.measure {
+  display:inline-flex;
+  background:var(--negro);
+  color:var(--amarillo);
+  font-weight:700;
+  border-radius:6px;
+  padding:2px 8px;
+  font-size:.8rem;
+  white-space:nowrap;
+}
+
+.ratio-grid {
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:16px;
+  margin-top:6px;
+}
+.ratio-card {
+  background:var(--gris-claro);
+  border:1px solid var(--gris-borde);
+  border-top:5px solid var(--amarillo);
+  border-radius:var(--radius);
+  padding:20px;
+  text-align:center;
+}
+.ratio-frame {
+  margin:0 auto 14px;
+  border:2px solid var(--negro);
+  border-radius:6px;
+  background:repeating-linear-gradient(45deg, var(--amarillo-soft) 0 10px, #fff 10px 20px);
+}
+.ratio-frame.r916 { width:64px; height:114px; }
+.ratio-frame.r45  { width:92px; height:114px; }
+.ratio-frame.r11  { width:114px; height:114px; }
+.ratio-card h4 { font-size:1rem; margin-bottom:4px; }
+.ratio-card p { font-size:.82rem; margin:0; color:var(--gris-oscuro); }
+
+.checklist { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.check-item {
+  display:grid;
+  grid-template-columns:28px 1fr;
+  gap:12px;
+  align-items:start;
+  background:var(--blanco);
+  border:1px solid var(--gris-borde);
+  border-radius:var(--radius);
+  padding:14px 16px;
+  box-shadow:var(--shadow-sm);
+}
+.check-item .tick {
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:var(--negro);
+  color:var(--amarillo);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:.8rem;
+}
+.check-item p { margin:0; font-size:.85rem; line-height:1.5; }
+.check-item strong { color:var(--negro); }
+
+@media(max-width:992px) {
+  .zone-layout,
+  .checklist { grid-template-columns:1fr; }
+  .phone-wrap { position:relative; }
+  .ratio-grid { grid-template-columns:1fr; }
+}

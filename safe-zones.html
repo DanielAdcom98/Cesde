@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safe Zones · Meta & TikTok</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/ruta.css">
+  <link rel="stylesheet" href="assets/css/safe-zones.css">
+</head>
+<body>
+  <button class="index-toggle-btn" onclick="toggleIndex()">Índice</button>
+  <div class="index-modal" id="indexModal">
+    <button class="index-close" onclick="toggleIndex()">×</button>
+    <h2>Safe zones</h2>
+    <ul class="index-list" id="indexList"></ul>
+  </div>
+
+  <div id="presentation-container">
+    <!-- PORTADA -->
+    <section class="slide slide-cover active" data-title="Portada">
+      <div class="slide-inner">
+        <div class="cover-kicker">CESDE · Guía de producción creativa</div>
+        <h1>Safe<br>Zones</h1>
+        <p class="body-text">Dónde ubicar textos, logos y llamados a la acción para que la interfaz de Meta y TikTok no los tape ni recorte. Especificaciones oficiales, aterrizadas para el equipo.</p>
+        <div class="cover-badges">
+          <span class="platform-tag">Meta · Stories &amp; Reels</span>
+          <span class="platform-tag light">TikTok · In-feed</span>
+          <span class="platform-tag">9:16 · 4:5 · 1:1</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUÉ ES -->
+    <section class="slide" data-title="Qué es una safe zone">
+      <div class="slide-inner">
+        <div class="slide-top-section">
+          <div class="slide-title-col"><div class="slide-header"><h2>Concepto</h2></div></div>
+          <div class="slide-desc-col">
+            <p class="subtext">Qué es una zona segura y por qué importa</p>
+            <p class="body-text">La safe zone es el área central de la pieza que ningún elemento nativo de la app tapa: perfil, descripción, botones de interacción, música o el CTA. Todo lo importante —mensaje, marca y llamado a la acción— debe vivir ahí.</p>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="stats-grid">
+            <div class="stat-card"><span class="stat-val">1080<span style="font-size:1.3rem">×</span>1920</span><span class="stat-label">Lienzo vertical</span><span class="stat-note">Formato 9:16, la base de todo</span></div>
+            <div class="stat-card"><span class="stat-val">~50%</span><span class="stat-label">Es zona segura</span><span class="stat-note">La otra mitad la usa la UI</span></div>
+            <div class="stat-card"><span class="stat-val">Reels</span><span class="stat-label">El caso más exigente</span><span class="stat-note">Diseña para su margen inferior</span></div>
+            <div class="stat-card"><span class="stat-val">3</span><span class="stat-label">Relaciones de aspecto</span><span class="stat-note">9:16 vertical · 4:5 · 1:1</span></div>
+          </div>
+          <div class="insight-grid" style="margin-top:22px">
+            <div class="insight-panel dark">
+              <h3>Por qué se pierde plata</h3>
+              <p>Ignorar los límites deja <strong>CTAs bloqueados, textos ilegibles y logos recortados</strong>. La pieza se ve bien en el editor, pero en el feed la interfaz nativa cubre justo lo que debía convertir. El resultado es inversión desperdiciada en creativos que nadie termina de leer.</p>
+            </div>
+            <div class="insight-panel">
+              <div class="meta-read">
+                <div class="meta-row"><strong>Regla base</strong><p>Centra el mensaje. Mantén texto, marca y CTA dentro de la banda segura.</p></div>
+                <div class="meta-row"><strong>Diseña para lo peor</strong><p>Si la pieza corre en Stories y Reels, respeta el margen de Reels (el más grande).</p></div>
+                <div class="meta-row"><strong>Verifica siempre</strong><p>Usa la previsualización de cada plataforma antes de publicar.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- META STORIES & REELS -->
+    <section class="slide" data-title="Meta · Stories & Reels">
+      <div class="slide-inner">
+        <div class="slide-top-section">
+          <div class="slide-title-col"><div class="slide-header"><h2>Meta 9:16</h2></div></div>
+          <div class="slide-desc-col">
+            <p class="subtext">Zona segura en Stories y Reels</p>
+            <p class="body-text">En 1080×1920, la interfaz de Meta ocupa la parte superior (perfil y nombre) y una franja inferior amplia (descripción, música y botón de acción). El ejemplo recrea el diagrama oficial de Meta.</p>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="zone-legend">
+            <span><i class="legend-swatch safe"></i> Zona segura — ubica aquí texto, logo y CTA</span>
+            <span><i class="legend-swatch danger"></i> Zona de riesgo — la tapa la interfaz</span>
+          </div>
+          <div class="zone-layout">
+            <div class="phone-wrap">
+              <div class="phone">
+                <div class="phone-creative has-img" style="background-image:url('assets/img/safe-zones/creativo-estudiante.jpg')"></div>
+                <div class="zone-danger" style="top:0;left:0;right:0;height:13%"></div>
+                <div class="ui-chip" style="top:3%;left:50%;transform:translateX(-50%)">Perfil · nombre de cuenta</div>
+                <div class="zone-danger" style="bottom:0;left:0;right:0;height:35%"></div>
+                <div class="ui-chip" style="bottom:6%;left:50%;transform:translateX(-50%)">Descripción · música · botón de acción (CTA)</div>
+                <div class="zone-safe" style="top:13%;bottom:35%;left:5%;right:5%"><b>Zona segura</b></div>
+              </div>
+              <p class="phone-caption">Recreación del diagrama de Meta · formato Reels 9:16</p>
+            </div>
+            <div class="spec-list">
+              <div class="spec-row">
+                <div class="spec-key"><strong>Superior</strong><small>Perfil / nombre</small></div>
+                <p>Deja libre el <span class="measure">~14% ≈ 250 px</span> de arriba. Ahí van el ícono de perfil y el nombre de la cuenta.</p>
+              </div>
+              <div class="spec-row">
+                <div class="spec-key"><strong>Inferior · Stories</strong><small>CTA + descripción</small></div>
+                <p>Reserva el <span class="measure">~20% ≈ 340 px</span> inferior en Stories para el llamado a la acción y el texto.</p>
+              </div>
+              <div class="spec-row">
+                <div class="spec-key"><strong>Inferior · Reels</strong><small>Margen crítico</small></div>
+                <p>En Reels la UI es más grande: reserva hasta el <span class="measure">~35% ≈ 672 px</span>. Si la pieza corre en ambos, diseña para este margen.</p>
+              </div>
+              <div class="spec-row">
+                <div class="spec-key"><strong>Banda central</strong><small>Zona segura</small></div>
+                <p>Todo lo clave (mensaje, marca, oferta, CTA) va en la franja central, aproximadamente entre los píxeles <span class="measure">250 y 1248</span>.</p>
+              </div>
+              <div class="spec-row">
+                <div class="spec-key"><strong>Texto</strong><small>Buenas prácticas</small></div>
+                <p>Prioriza un solo titular u oferta. El exceso de texto puede reducir el alcance de la pieza.</p>
+              </div>
+            </div>
+          </div>
+          <p class="source-note">Fuente: <a href="https://www.facebook.com/business/help/980593475366490" target="_blank" rel="noopener noreferrer">Meta Business Help Center — Texto superpuesto y zona segura en Historias y Reels</a>. Diagrama recreado con las medidas oficiales. Foto de ejemplo: <a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer">Unsplash</a> (licencia libre para uso comercial).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- META FORMATOS -->
+    <section class="slide" data-title="Meta · Formatos y feed">
+      <div class="slide-inner">
+        <div class="slide-top-section">
+          <div class="slide-title-col"><div class="slide-header"><h2>Meta formatos</h2></div></div>
+          <div class="slide-desc-col">
+            <p class="subtext">Relaciones de aspecto por ubicación</p>
+            <p class="body-text">No todo es 9:16. El feed de Facebook e Instagram premia el vertical 4:5 y el cuadrado 1:1. Cada formato tiene su lienzo recomendado.</p>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="ratio-grid">
+            <div class="ratio-card">
+              <div class="ratio-frame r916"></div>
+              <h4>9:16 vertical</h4>
+              <p><span class="measure">1080 × 1920</span><br>Stories y Reels. Aplica la zona segura superior e inferior.</p>
+            </div>
+            <div class="ratio-card">
+              <div class="ratio-frame r45"></div>
+              <h4>4:5 vertical</h4>
+              <p><span class="measure">1080 × 1350</span><br>Feed. Ocupa más pantalla que el cuadrado; ideal para feed móvil.</p>
+            </div>
+            <div class="ratio-card">
+              <div class="ratio-frame r11"></div>
+              <h4>1:1 cuadrado</h4>
+              <p><span class="measure">1080 × 1080</span><br>Feed y varias ubicaciones. El más versátil.</p>
+            </div>
+          </div>
+          <div class="callout" style="margin-top:24px">
+            <h3>Advertencia de compatibilidad</h3>
+            <p>Si diseñas para el margen inferior de <strong>Stories (20%)</strong> y la pieza también corre en <strong>Reels</strong>, tu CTA puede desaparecer detrás de los elementos interactivos. Diseña siempre para el margen mayor si la pieza va a ambas ubicaciones.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIKTOK IN-FEED -->
+    <section class="slide" data-title="TikTok · In-feed">
+      <div class="slide-inner">
+        <div class="slide-top-section">
+          <div class="slide-title-col"><div class="slide-header"><h2>TikTok 9:16</h2></div></div>
+          <div class="slide-desc-col">
+            <p class="subtext">Zona segura del video in-feed</p>
+            <p class="body-text">TikTok tiene UI en los cuatro lados: pestañas y búsqueda arriba, íconos de interacción a la derecha, y una franja inferior amplia con nombre, descripción y música. El ejemplo recrea el diagrama oficial (verde = seguro).</p>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="zone-legend">
+            <span><i class="legend-swatch safe"></i> Zona segura</span>
+            <span><i class="legend-swatch danger"></i> Zona de riesgo (UI nativa)</span>
+          </div>
+          <div class="zone-layout">
+            <div class="phone-wrap">
+              <div class="phone">
+                <div class="phone-creative has-img" style="background-image:url('assets/img/safe-zones/creativo-gastronomia.jpg')"></div>
+                <div class="zone-danger" style="top:0;left:0;right:0;height:6.8%"></div>
+                <div class="ui-chip" style="top:1.6%;left:50%;transform:translateX(-50%)">Pestañas · búsqueda</div>
+                <div class="zone-danger" style="top:6.8%;bottom:25.2%;left:0;width:4%"></div>
+                <div class="zone-danger" style="top:6.8%;bottom:25.2%;right:0;width:13%"></div>
+                <div class="ui-chip right">Perfil · me gusta · comentar · compartir</div>
+                <div class="zone-danger" style="bottom:0;left:0;right:0;height:25.2%"></div>
+                <div class="ui-chip" style="bottom:5%;left:44%;transform:translateX(-50%)">Nombre · descripción · música</div>
+                <div class="zone-safe" style="top:6.8%;bottom:25.2%;left:4%;right:13%"><b>Zona segura</b></div>
+              </div>
+              <p class="phone-caption">Recreación del diagrama de TikTok · in-feed 9:16</p>
+            </div>
+            <div class="spec-list">
+              <div class="spec-row">
+                <div class="spec-key"><strong>Superior</strong><small>Pestañas / búsqueda</small></div>
+                <p>Deja libre <span class="measure">130 px</span> arriba para no chocar con las pestañas “Siguiendo / Para ti” y el ícono de búsqueda.</p>
+              </div>
+              <div class="spec-row">
+                <div class="spec-key"><strong>Inferior</strong><small>Zona más crítica</small></div>
+                <p>Deja libre <span class="measure">484 px</span> abajo: es donde van la descripción, el ticker de música y el nombre de la cuenta.</p>
+              </div>
+              <div class="spec-row">
+                <div class="spec-key"><strong>Derecha</strong><small>Íconos de interacción</small></div>
+                <p>Deja libre <span class="measure">140 px</span> a la derecha para la foto de perfil y los botones de me gusta, comentar y compartir.</p>
+              </div>
+              <div class="spec-row">
+                <div class="spec-key"><strong>Izquierda</strong><small>Recorte de borde</small></div>
+                <p>Deja libre <span class="measure">44 px</span> a la izquierda para evitar recortes en pantallas de distinto tamaño.</p>
+              </div>
+              <div class="spec-row">
+                <div class="spec-key"><strong>Lienzo</strong><small>Resolución</small></div>
+                <p>Trabaja sobre <span class="measure">1080 × 1920</span> (9:16) y ubica todo lo clave dentro del recuadro verde.</p>
+              </div>
+            </div>
+          </div>
+          <p class="source-note">Fuente: <a href="https://ads.tiktok.com/help/article/tiktok-interactive-add-on-download-card-ad-specifications?lang=en" target="_blank" rel="noopener noreferrer">TikTok Ads Help Center</a> y documentación de safe zones de TikTok. Diagrama recreado con las medidas oficiales. Foto de ejemplo: <a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer">Unsplash</a> (licencia libre para uso comercial).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIKTOK DOWNLOAD CARD -->
+    <section class="slide" data-title="TikTok · Download Card">
+      <div class="slide-inner">
+        <div class="slide-top-section">
+          <div class="slide-title-col"><div class="slide-header"><h2>Add-on</h2></div></div>
+          <div class="slide-desc-col">
+            <p class="subtext">Download Card · complemento interactivo</p>
+            <p class="body-text">La Download Card es un complemento interactivo que se usa en un video in-feed para mostrar elementos de la app que se promociona. Al añadirla, la zona segura cambia y hay que revisarla de nuevo.</p>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="profile-grid">
+            <div class="matrix-card">
+              <span class="matrix-kicker">Factor 1</span>
+              <h3>Formato de la pieza</h3>
+              <p>El tamaño de la zona segura depende de si el anuncio es vertical, cuadrado u horizontal. Cada uno tiene su propio diagrama (LTR y versión RTL para árabe).</p>
+            </div>
+            <div class="matrix-card">
+              <span class="matrix-kicker">Factor 2</span>
+              <h3>Longitud del texto</h3>
+              <p>Entre más largo el texto o la descripción, <strong>más pequeña</strong> se vuelve la zona segura, porque ese texto ocupa más pantalla.</p>
+            </div>
+            <div class="matrix-card">
+              <span class="matrix-kicker">Factor 3</span>
+              <h3>Complementos adicionales</h3>
+              <p>Usar formatos o add-ons adicionales (como la propia Download Card) modifica aún más el área disponible.</p>
+            </div>
+          </div>
+          <div class="callout" style="margin-top:22px">
+            <h3>Regla de oro TikTok</h3>
+            <p>Los elementos clave del diseño deben quedar <strong>dentro de la zona segura para no ser cubiertos ni recortados</strong>. Verifica siempre con la herramienta de previsualización de TikTok antes de enviar la pieza a revisión.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARACIÓN -->
+    <section class="slide" data-title="Meta vs TikTok">
+      <div class="slide-inner">
+        <div class="slide-top-section">
+          <div class="slide-title-col"><div class="slide-header"><h2>Comparación</h2></div></div>
+          <div class="slide-desc-col">
+            <p class="subtext">Márgenes lado a lado</p>
+            <p class="body-text">Ambas plataformas parten del lienzo 1080×1920, pero reservan la interfaz en zonas distintas. Este cuadro resume dónde dejar espacio en cada una.</p>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Margen</th><th>Meta · Stories</th><th>Meta · Reels</th><th>TikTok · In-feed</th><th>Qué lo ocupa</th></tr></thead>
+              <tbody>
+                <tr><td>Superior</td><td>~250 px (14%)</td><td>~250 px (14%)</td><td>130 px</td><td>Perfil, nombre, pestañas y búsqueda</td></tr>
+                <tr><td>Inferior</td><td>~340 px (20%)</td><td>~672 px (35%)</td><td>484 px</td><td>Descripción, música y CTA</td></tr>
+                <tr><td>Izquierda</td><td>Mínimo</td><td>Mínimo</td><td>44 px</td><td>Recorte de borde</td></tr>
+                <tr><td>Derecha</td><td>Mínimo</td><td>Mínimo</td><td>140 px</td><td>Íconos de interacción (TikTok)</td></tr>
+                <tr><td>Lienzo</td><td>1080×1920</td><td>1080×1920</td><td>1080×1920</td><td>9:16 vertical</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="insight-grid" style="margin-top:22px">
+            <div class="insight-panel dark">
+              <h3>La diferencia clave</h3>
+              <p>Meta concentra la interfaz <strong>arriba y abajo</strong>. TikTok además ocupa <strong>la derecha</strong> con sus íconos de interacción. Una pieza pensada solo para Meta puede chocar con esos botones en TikTok.</p>
+            </div>
+            <div class="insight-panel">
+              <h3>Recomendación de producción</h3>
+              <p>Diseña un <strong>máster centrado</strong> que respete el margen más exigente de cada eje (inferior de Reels, derecha de TikTok). Así la misma pieza sirve para ambas plataformas sin recortes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHECKLIST -->
+    <section class="slide" data-title="Checklist de producción">
+      <div class="slide-inner">
+        <div class="slide-top-section">
+          <div class="slide-title-col"><div class="slide-header"><h2>Checklist</h2></div></div>
+          <div class="slide-desc-col">
+            <p class="subtext">Antes de publicar cualquier pieza</p>
+            <p class="body-text">Una lista rápida para que ningún creativo salga con el mensaje o el CTA tapado.</p>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="checklist">
+            <div class="check-item"><span class="tick">✓</span><p><strong>Lienzo 1080×1920.</strong> Parte del formato 9:16 y adapta a 4:5 y 1:1 para feed.</p></div>
+            <div class="check-item"><span class="tick">✓</span><p><strong>Mensaje al centro.</strong> Titular, marca, oferta y CTA dentro de la banda segura.</p></div>
+            <div class="check-item"><span class="tick">✓</span><p><strong>Diseña para Reels.</strong> Respeta el 35% inferior si la pieza también corre en Stories.</p></div>
+            <div class="check-item"><span class="tick">✓</span><p><strong>Cuida la derecha en TikTok.</strong> Deja 140 px libres para los íconos de interacción.</p></div>
+            <div class="check-item"><span class="tick">✓</span><p><strong>Un solo titular.</strong> Evita el exceso de texto; puede reducir el alcance.</p></div>
+            <div class="check-item"><span class="tick">✓</span><p><strong>Previsualiza siempre.</strong> Usa la herramienta de cada plataforma antes de enviar a revisión.</p></div>
+          </div>
+          <div class="callout" style="margin-top:24px">
+            <h3>En una frase</h3>
+            <p>Lo importante siempre <strong>al centro</strong>; los bordes son de la plataforma. Si dudas, deja más aire.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="nav-controls">
+    <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">Anterior</button>
+    <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Siguiente</button>
+  </div>
+  <div class="slide-counter" id="slideCounter"></div>
+  <div class="progress-bar" id="progressBar"></div>
+
+  <script src="assets/js/audience-cards.js"></script>
+</body>
+</html>
