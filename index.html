@@ -1,121 +1,145 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CESDE</title>
+  <title>CESDE | Biblioteca de documentos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/index.css">
 </head>
-<body>
-  <main class="page">
-    <section class="shell">
-      <div class="hero">
-        <div class="eyebrow">CESDE · Navegación interna</div>
-        <h1>Ruta estratégica</h1>
-        <p class="lead">
-          Acceso central al contenido estratégico del proyecto. Desde aquí puedes entrar
-          directamente a las presentaciones web separadas, sin mezclar los documentos estratégicos con la portada principal del repositorio.
-        </p>
+<body id="top">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./index.html" aria-label="Inicio CESDE">
+        <img class="brand-logo" src="./assets/img/brand/cesde-magenta.webp" alt="CESDE">
+        <span class="brand-copy"><small>Biblioteca de documentos</small></span>
+      </a>
+      <a class="repo-link" href="https://github.com/DanielAdcom98/Cesde" target="_blank" rel="noopener noreferrer">Repositorio <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
 
-        <div class="actions">
-          <a class="btn btn-primary" href="./ruta.html">Abrir ruta</a>
-          <a class="btn btn-secondary" href="./linea-de-tiempo-tecper.html">Línea de tiempo Técnicos Laborales</a>
-          <a class="btn btn-secondary" href="./audience-cards.html">Audience cards</a>
-          <a class="btn btn-secondary" href="./safe-zones.html">Safe zones</a>
-          <a class="btn btn-secondary" href="https://github.com/DanielAdcom98/Cesde" target="_blank" rel="noopener noreferrer">Ver repositorio</a>
-        </div>
-
-        <div class="mini-grid">
-          <article class="mini-card">
-            <span>Archivo</span>
-            <strong>ruta.html · audience-cards.html</strong>
-          </article>
-          <article class="mini-card">
-            <span>Tipo</span>
-            <strong>Presentaciones web interactivas</strong>
-          </article>
-          <article class="mini-card">
-            <span>Acceso</span>
-            <strong>Desde este índice interno</strong>
-          </article>
-        </div>
+  <main>
+    <section class="intro">
+      <div>
+        <span class="eyebrow">Contenido CESDE</span>
+        <h1>Documentos del proyecto</h1>
+        <p>Rutas estratégicas, resultados e implementaciones organizados en un solo lugar.</p>
       </div>
+      <nav class="category-nav" aria-label="Categorías de documentos">
+        <a href="#rutas">Rutas <span>3</span></a>
+        <a href="#informes">Informes <span>4</span></a>
+        <a href="#implementacion">Implementación <span>4</span></a>
+      </nav>
+    </section>
 
-      <aside class="panel">
-        <div class="panel-top">
-          <div class="panel-label">Contenido destacado</div>
-          <h2>Entrada rápida al documento</h2>
-          <p>
-            Separamos la ruta en un archivo propio para que el repositorio tenga una portada más limpia,
-            simple y funcional, con un acceso claro al contenido principal.
-          </p>
+    <section class="document-section" id="rutas">
+      <div class="section-heading">
+        <div>
+          <span class="section-index">01</span>
+          <h2>Rutas</h2>
         </div>
+        <p>Estrategia, audiencias y guías de producción.</p>
+      </div>
+      <div class="document-grid">
+        <article class="document-card">
+          <div class="card-meta"><span>Estrategia</span><time>2026</time></div>
+          <h3>Ruta estratégica CESDE</h3>
+          <p>Marco de trabajo y recorrido estratégico del proyecto.</p>
+          <a href="./ruta.html">Abrir documento <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="document-card">
+          <div class="card-meta"><span>Audiencias</span><time>2026</time></div>
+          <h3>Perfiles de audiencia</h3>
+          <p>Perfiles por intención, barreras, señales digitales y seguimiento comercial.</p>
+          <a href="./audience-cards.html">Abrir documento <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="document-card">
+          <div class="card-meta"><span>Producción</span><time>2026</time></div>
+          <h3>Zonas seguras de diseño</h3>
+          <p>Guía para ubicar textos, logos y llamados a la acción en Meta y TikTok.</p>
+          <a href="./safe-zones.html">Abrir documento <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
 
-        <div class="route-card">
-          <small>Disponible ahora</small>
-          <strong>Ruta Estratégica CESDE</strong>
-          <p>Haz clic y entra directo a la versión dedicada del documento.</p>
-          <a href="./ruta.html">Ir a ruta →</a>
+    <section class="document-section section-alt" id="informes">
+      <div class="section-heading">
+        <div>
+          <span class="section-index">02</span>
+          <h2>Informes</h2>
         </div>
-        <div class="route-card">
-          <small>Nuevo documento</small>
-          <strong>Audience Cards CESDE</strong>
-          <p>Perfiles estratégicos por intención, barreras, señales digitales y seguimiento comercial.</p>
-          <a href="./audience-cards.html">Ir a audience cards →</a>
+        <p>Resultados, evolución y aprendizajes por canal.</p>
+      </div>
+      <div class="document-grid">
+        <article class="document-card">
+          <div class="card-meta"><span>Técnicos Laborales</span><time>May–jul 2026</time></div>
+          <h3>Línea de tiempo</h3>
+          <p>Evolución semanal del costo por contacto, piezas, inversión y formularios.</p>
+          <a href="./linea-de-tiempo-tecper.html">Abrir informe <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="document-card">
+          <div class="card-meta"><span>Técnicos Laborales</span><time>May–jul 2026</time></div>
+          <h3>Resultados de TikTok</h3>
+          <p>Evolución mensual, desempeño por audiencia y piezas destacadas.</p>
+          <a href="./pages/reporte-tiktok-tecper-may-jul.html">Abrir informe <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="document-card">
+          <div class="card-meta"><span>Técnicos Laborales</span><time>Jul 2026</time></div>
+          <h3>Resultados de WhatsApp</h3>
+          <p>Conversaciones, costo por contacto y desempeño por audiencia y pieza.</p>
+          <a href="./pages/reporte-whatsapp-tecper-jul.html">Abrir informe <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="document-card">
+          <div class="card-meta"><span>Medios de alcance</span><time>Jun–jul 2026</time></div>
+          <h3>Spotify y pantallas digitales</h3>
+          <p>Entrega, escucha completa y rendimiento de las pantallas exteriores.</p>
+          <a href="./pages/reporte-spotify-dooh-jun-jul.html">Abrir informe <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="document-section" id="implementacion">
+      <div class="section-heading">
+        <div>
+          <span class="section-index">03</span>
+          <h2>Reportes de implementación</h2>
         </div>
-        <div class="route-card">
-          <small>Guía de producción</small>
-          <strong>Safe Zones · Meta &amp; TikTok</strong>
-          <p>Dónde ubicar textos, logos y CTA para que la interfaz no los tape ni recorte.</p>
-          <a href="./safe-zones.html">Ir a safe zones →</a>
-        </div>
-        <div class="route-card">
-          <small>Piezas implementadas</small>
-          <strong>Técnicos Laborales · Últimos cupos 27/07</strong>
-          <p>Resumen de las piezas publicadas y los ajustes de inversión por programa.</p>
-          <a href="./pages/reporte-tecper-soldout-27-07.html">Ir al informe →</a>
-        </div>
-        <div class="route-card">
-          <small>Piezas implementadas · Técnicos Laborales</small>
-          <strong>Extensión de matrículas 05/08</strong>
-          <p>Vista de las piezas estática y de video activas para la oferta general de Medellín.</p>
-          <a href="./pages/reporte-tecper-extension-05-08.html">Ir al informe →</a>
-        </div>
-        <div class="route-card">
-          <small>Piezas implementadas · Empresas</small>
-          <strong>Empresas · Agosto 31/07</strong>
-          <p>Vista única por programa de las piezas implementadas para agosto.</p>
-          <a href="./pages/reporte-pq-agosto-31-07.html">Ir al informe →</a>
-        </div>
-        <div class="route-card">
-          <small>Medios de alcance · jun–jul 2026</small>
-          <strong>Gestión Spotify y pantallas digitales</strong>
-          <p>Informe breve de audio digital y pantallas exteriores: entrega, escucha completa y rendimiento por pantalla.</p>
-          <a href="./pages/reporte-spotify-dooh-jun-jul.html">Ir al informe →</a>
-        </div>
-        <div class="route-card">
-          <small>Resultados digitales · may–jul 2026</small>
-          <strong>TikTok · Técnicos Laborales</strong>
-          <p>Evolución mensual, desempeño por audiencia y piezas con mejor costo por conversión.</p>
-          <a href="./pages/reporte-tiktok-tecper-may-jul.html">Ir al informe →</a>
-        </div>
-        <div class="route-card">
-          <small>Conversaciones · julio 2026</small>
-          <strong>WhatsApp · Técnicos Laborales</strong>
-          <p>Embudo de mensajería, costo por conversación, contactos atribuidos y lectura por audiencia y pieza.</p>
-          <a href="./pages/reporte-whatsapp-tecper-jul.html">Ir al informe →</a>
-        </div>
-        <div class="route-card">
-          <small>Resultados digitales · may–jul 2026</small>
-          <strong>Línea de tiempo Técnicos Laborales</strong>
-          <p>Evolución semanal del costo por contacto y de los ajustes en piezas, inversión y formularios.</p>
-          <a href="./linea-de-tiempo-tecper.html">Ir a la línea de tiempo →</a>
-        </div>
-      </aside>
+        <p>Vista de las piezas publicadas por programa y sede.</p>
+      </div>
+      <div class="document-grid">
+        <article class="document-card">
+          <div class="card-meta"><span>Técnicos Laborales</span><time>May 2026</time></div>
+          <h3>Piezas de inicio de ciclo</h3>
+          <p>123 piezas organizadas por programa y sede.</p>
+          <a href="./pages/reporte-implementacion.html">Abrir reporte <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="document-card">
+          <div class="card-meta"><span>Técnicos Laborales</span><time>27/07</time></div>
+          <h3>Últimos cupos</h3>
+          <p>49 piezas únicas para 22 programas y sedes.</p>
+          <a href="./pages/reporte-tecper-soldout-27-07.html">Abrir reporte <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="document-card">
+          <div class="card-meta"><span>Técnicos Laborales</span><time>05/08</time></div>
+          <h3>Extensión de matrículas</h3>
+          <p>Piezas estática y de video para la oferta general de Medellín.</p>
+          <a href="./pages/reporte-tecper-extension-05-08.html">Abrir reporte <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="document-card">
+          <div class="card-meta"><span>Empresas</span><time>31/07</time></div>
+          <h3>Piezas de agosto</h3>
+          <p>Nueve programas con sus formatos de publicación e historia.</p>
+          <a href="./pages/reporte-pq-agosto-31-07.html">Abrir reporte <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
     </section>
   </main>
+
+  <footer>
+    <span>CESDE · Documentos del proyecto</span>
+    <a href="#top">Volver arriba <span aria-hidden="true">↑</span></a>
+  </footer>
 </body>
 </html>
