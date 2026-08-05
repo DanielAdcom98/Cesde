@@ -79,9 +79,9 @@ function pintarColumnas(contenedorId, ejeId, campo, formato, resaltar) {
     barra.tabIndex = 0;
     barra.setAttribute('role', 'img');
     barra.setAttribute('aria-label',
-      `${s.sem}, semana del ${s.desde}: CPA ${cop(s.cpa)}, ${miles(s.leads)} leads, inversión ${cop(s.inv)}`);
+      `${s.sem}, semana del ${s.desde}: costo por contacto ${cop(s.cpa)}, ${miles(s.leads)} contactos, inversión ${cop(s.inv)}`);
     mostrarTip(barra,
-      `${s.sem} · semana del ${s.desde}\nCPA ${cop(s.cpa)}\n${miles(s.leads)} leads\n${cop(s.inv)} invertidos`);
+      `${s.sem} · semana del ${s.desde}\nCosto por contacto ${cop(s.cpa)}\n${miles(s.leads)} contactos\n${cop(s.inv)} invertidos`);
     col.appendChild(barra);
 
     cont.appendChild(col);
