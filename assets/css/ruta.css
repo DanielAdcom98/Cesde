@@ -112,7 +112,7 @@
 
     .visual-board { display:grid; grid-template-columns:1fr 1.15fr; gap:22px; align-items:stretch; margin-bottom:22px; }
     .donut-card,.bars-card,.mini-card { background:var(--gris-claro); border:1px solid var(--gris-borde); border-radius:var(--radius); padding:22px; }
-    .donut { width:210px; height:210px; border-radius:50%; margin:0 auto 16px; background:conic-gradient(var(--amarillo) 0 47.3%, #111 47.3% 67.4%, #777 67.4% 83.4%, #dcdcdc 83.4% 100%); position:relative; box-shadow:inset 0 0 0 1px rgba(0,0,0,.04); }
+    .donut { width:210px; height:210px; border-radius:50%; margin:0 auto 16px; background:conic-gradient(var(--amarillo) 0 63.3%, #111 63.3% 81.1%, #777 81.1% 88.2%, #dcdcdc 88.2% 100%); position:relative; box-shadow:inset 0 0 0 1px rgba(0,0,0,.04); }
     .donut::after { content:'$169M'; position:absolute; inset:38px; border-radius:50%; background:var(--blanco); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--negro); font-size:1.65rem; }
     .legend { display:grid; gap:8px; }
     .legend-row { display:grid; grid-template-columns:14px 1fr auto; gap:10px; align-items:center; font-size:.88rem; }
@@ -388,13 +388,12 @@
     .brand-month-track { height:22px; background:#ededed; border-radius:999px; overflow:hidden; border:1px solid #e1e1e1; display:flex; }
     .brand-month-track span { height:100%; }
     .brand-month-track .dooh { background:var(--amarillo); }
-    .brand-month-track .display { background:#111; }
     .brand-month-track .spotify { background:#35b66b; }
     .brand-month-row small { display:block; text-align:right; color:var(--negro); font-weight:700; }
     .brand-chip-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
     .brand-chip { display:inline-flex; align-items:center; gap:6px; padding:7px 10px; border-radius:999px; border:1px solid var(--gris-borde); background:var(--gris-claro); color:var(--negro); font-size:.75rem; font-weight:700; }
     .brandflow-list { display:grid; gap:10px; max-height:355px; overflow:auto; padding-right:4px; }
-    .brandflow-item { display:grid; grid-template-columns:1fr 88px 88px 74px; gap:12px; align-items:center; background:var(--gris-claro); border:1px solid var(--gris-borde); border-radius:8px; padding:12px 14px; }
+    .brandflow-item { display:grid; grid-template-columns:1fr 110px 74px; gap:12px; align-items:center; background:var(--gris-claro); border:1px solid var(--gris-borde); border-radius:8px; padding:12px 14px; }
     .brandflow-item strong { display:block; color:var(--negro); font-size:.85rem; line-height:1.25; margin-bottom:4px; }
     .brandflow-item small { color:var(--gris-medio); font-size:.72rem; }
     .brandflow-item .num { text-align:right; color:var(--negro); font-weight:700; font-size:.84rem; }
