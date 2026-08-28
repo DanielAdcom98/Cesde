@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ruta de sostenimiento · Septiembre 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/ruta.css">
+  <style>
+    /* --- Selector de escenario --- */
+    .scn-dock { position:fixed; bottom:32px; left:50%; transform:translateX(-50%); z-index:120;
+      display:flex; flex-direction:column; align-items:center; gap:5px; }
+    .scn-label { font-size:.66rem; font-weight:700; text-transform:uppercase; letter-spacing:1px;
+      color:var(--gris-medio); background:var(--blanco); padding:0 8px; }
+    .scn-switch { display:flex; gap:6px; background:var(--gris-claro); border:1px solid var(--gris-borde);
+      border-radius:50px; padding:5px; box-shadow:var(--shadow-sm); }
+    .scn-switch button { border:none; background:transparent; font-family:'Poppins'; font-weight:600;
+      font-size:.85rem; color:var(--gris-oscuro); padding:8px 18px; border-radius:50px; cursor:pointer; transition:all .2s; }
+    .scn-switch button.active { background:var(--negro); color:var(--amarillo); }
+    body[data-scn="a"] .only-b, body[data-scn="b"] .only-a { display:none !important; }
+    .scn-hint { display:flex; align-items:center; gap:10px; background:var(--amarillo-soft);
+      border:1px solid var(--amarillo); border-radius:var(--radius); padding:11px 18px; margin-bottom:18px;
+      font-size:.86rem; color:var(--negro); font-weight:500; }
+    .scn-hint strong { font-weight:700; }
+
+    /* --- Escenarios en portada --- */
+    .cover-scn { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:34px; width:100%; max-width:760px; text-align:left; }
+    .cover-scn-card { background:var(--blanco); border:1px solid var(--gris-borde); border-top:5px solid var(--amarillo);
+      border-radius:var(--radius); padding:20px 24px; box-shadow:var(--shadow-sm); }
+    .cover-scn-card .k { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--gris-medio); }
+    .cover-scn-card .v { display:block; font-size:2rem; font-weight:700; color:var(--negro); line-height:1.1; margin:4px 0 6px; }
+    .cover-scn-card p { font-size:.82rem; font-weight:300; font-style:normal; margin:0; color:var(--gris-oscuro); }
+
+    /* --- Calendario --- */
+    .cal { display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-top:6px; }
+    .cal-h { font-size:.68rem; text-transform:uppercase; letter-spacing:.6px; color:var(--gris-medio);
+      text-align:center; font-weight:700; padding-bottom:2px; }
+    .cal-d { background:var(--gris-claro); border:1px solid var(--gris-borde); border-radius:8px;
+      padding:7px 8px 9px; min-height:76px; display:flex; flex-direction:column; gap:4px; }
+    .cal-d.empty { background:transparent; border:none; min-height:0; }
+    .cal-d.fest { border-color:var(--amarillo); border-width:2px; background:var(--amarillo-soft); }
+    .cal-n { font-weight:700; font-size:.82rem; color:var(--negro); line-height:1; }
+    .cal-t { font-size:.6rem; color:var(--gris-medio); line-height:1.2; margin-top:-1px; }
+    .cal-bars { margin-top:auto; display:flex; flex-direction:column; gap:3px; }
+    .cal-b { height:5px; border-radius:3px; }
+    .cal-b.metac { background:#FFC000; }
+    .cal-b.goog  { background:#111; }
+    .cal-b.metap { background:#9E7B00; }
+    .cal-b.ttk   { background:#8C8C8C; }
+    .cal-legend { display:flex; flex-wrap:wrap; gap:18px; margin-top:16px; font-size:.8rem; font-weight:600; color:var(--gris-oscuro); }
+    .cal-legend span.k { display:inline-block; width:22px; height:6px; border-radius:3px; margin-right:7px; vertical-align:middle; }
+
+    /* --- Fila de presupuesto --- */
+    .bud-row { display:grid; grid-template-columns:1.5fr 2.4fr .9fr .8fr; gap:14px; align-items:center;
+      background:var(--gris-claro); border:1px solid var(--gris-borde); border-radius:var(--radius);
+      padding:13px 18px; margin-bottom:9px; }
+    .bud-row .lbl strong { display:block; font-size:1rem; }
+    .bud-row .lbl small { color:var(--gris-medio); font-size:.75rem; }
+    .bud-track { height:12px; background:#e9e9ec; border-radius:6px; overflow:hidden; }
+    .bud-fill { height:100%; border-radius:6px; background:var(--amarillo); width:var(--w); }
+    .bud-fill.goog { background:#111; } .bud-fill.metap { background:#9E7B00; } .bud-fill.ttk { background:#8C8C8C; }
+    .bud-row .amt { text-align:right; font-weight:700; color:var(--negro); font-size:1.02rem; }
+    .bud-row .pct2 { text-align:right; font-weight:700; color:var(--gris-medio); font-size:.9rem; }
+    .bud-total { display:grid; grid-template-columns:1.5fr 2.4fr .9fr .8fr; gap:14px; padding:12px 18px;
+      border-top:2px solid var(--negro); margin-top:4px; font-weight:700; color:var(--negro); }
+    .bud-total .amt, .bud-total .pct2 { text-align:right; }
+    @media(max-width:992px){ .bud-row,.bud-total{ grid-template-columns:1fr 1fr; } .bud-track{ grid-column:1/-1; } }
+
+    /* --- Banco de piezas --- */
+    .asset-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:8px; }
+    .asset-card { background:var(--gris-claro); border:1px solid var(--gris-borde); border-left:4px solid var(--amarillo);
+      border-radius:var(--radius); padding:16px 18px; }
+    .asset-card h4 { font-size:.95rem; margin-bottom:4px; }
+    .asset-card .fmt { font-size:.72rem; text-transform:uppercase; letter-spacing:.5px; color:var(--gris-medio); font-weight:700; }
+    .asset-card p { font-size:.82rem; font-weight:300; margin:8px 0 0; }
+    .asset-card.video { border-left-color:#9E7B00; }
+    .asset-card.est { border-left-color:#FFC000; }
+    .asset-card.car { border-left-color:#111; }
+
+    /* --- Tabla comparativa A/B --- */
+    table.cmp { min-width:720px; }
+    table.cmp td.scnA { background:#FFFBF0; }
+    table.cmp th.scnA { background:var(--amarillo); color:var(--negro); }
+    table.cmp th.scnB { background:var(--negro); color:var(--amarillo); }
+
+    @media(max-width:992px){ .asset-grid{ grid-template-columns:1fr 1fr; } .cover-scn{ grid-template-columns:1fr; } }
+    @media(max-width:576px){ .asset-grid{ grid-template-columns:1fr; } .scn-dock{ bottom:auto; top:76px; } }
+  </style>
+</head>
+<body data-scn="a">
+  <button class="index-toggle-btn" onclick="toggleIndex()">Índice</button>
+  <div class="index-modal" id="indexModal">
+    <button class="index-close" onclick="toggleIndex()">×</button>
+    <h2>Sostenimiento septiembre</h2>
+    <ul class="index-list" id="indexList"></ul>
+  </div>
+
+  <div id="presentation-container">
+
+    <!-- 01 · Portada -->
+    <section class="slide slide-cover active" data-title="Portada">
+      <div class="slide-inner">
+        <div class="cover-kicker">CESDE · Campaña de sostenimiento</div>
+        <h1>Septiembre<br>2026</h1>
+        <p class="body-text">Posicionamiento en Meta y TikTok y captación general en Meta y Google, corriendo en paralelo todo el mes. Sin semanas encendidas y semanas apagadas.</p>
+        <div class="cover-scn">
+          <div class="cover-scn-card">
+            <span class="k">Escenario A</span>
+            <span class="v">$2.500.000</span>
+            <p>Meta y Google al aire los 30 días. TikTok en una sola ventana continua de 5 días al cierre.</p>
+          </div>
+          <div class="cover-scn-card">
+            <span class="k">Escenario B</span>
+            <span class="v">$5.000.000</span>
+            <p>Los mismos 30 días con el doble de diario, TikTok en 10 días continuos y capa de remarketing en Meta.</p>
+          </div>
+        </div>
+        <p class="source-note" style="margin-top:18px">Este documento presenta los <strong>dos escenarios en paralelo</strong>. El selector inferior cambia las cifras de todo el documento entre A y B.</p>
+      </div>
+    </section>
+
+    <!-- 02 · Qué sostenemos -->
+    <section class="slide" data-title="Qué sostenemos">
+      <div class="slide-inner">
+        <div class="slide-top-section">
+          <div class="slide-title-col"><div class="slide-header"><h2>Objetivo</h2></div></div>
+          <div class="slide-desc-col">
+            <p class="subtext">Septiembre no es un mes de escala, es un mes de continuidad</p>
+            <p class="body-text">La inversión de septiembre no se juzga por el volumen de leads del mes. Se juzga por dos cosas: que la marca no desaparezca del feed entre ciclos y que el empujón de fin de año arranque con audiencias construidas en lugar de arrancar en frío.</p>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="stats-grid">
+            <div class="stat-card"><span class="stat-val">30</span><span class="stat-label">Días al aire</span><span class="stat-note">1 al 30 de septiembre</span></div>
+            <div class="stat-card"><span class="stat-val">4</span><span class="stat-label">Frentes en paralelo</span><span class="stat-note">Meta ×2 · Google · TikTok</span></div>
+            <div class="stat-card"><span class="stat-val">7</span><span class="stat-label">Piezas disponibles</span><span class="stat-note">4 videos · 2 estáticas · 1 carrusel</span></div>
+            <div class="stat-card"><span class="stat-val">2</span><span class="stat-label">Escenarios</span><span class="stat-note">$2,5M y $5,0M</span></div>
+          </div>
+          <div class="cards-3" style="margin-top:22px">
+            <div class="flat-card">
+              <span class="tag light">Posicionamiento</span>
+              <h3>Meta y TikTok</h3>
+              <p style="font-size:.9rem;font-weight:300">Video vertical para sostener presencia y, sobre todo, para generar el pool de reproductores y engagers que el último trimestre va a remarketizar. El entregable real de esta capa es una audiencia, no un lead.</p>
+            </div>
+            <div class="flat-card">
+              <span class="tag light">Captación</span>
+              <h3>Meta y Google</h3>
+              <p style="font-size:.9rem;font-weight:300">Campañas generales always-on, sin apertura por programa ni por sede. Recogen la demanda que quedó sin atender al cierre de 2026-2 y la que empieza a moverse hacia el siguiente ciclo.</p>
+            </div>
+            <div class="flat-card">
+              <span class="tag gray">Fuera de alcance</span>
+              <h3>Lo que no hace septiembre</h3>
+              <p style="font-size:.9rem;font-weight:300">No abre campañas por programa, no reactiva DOOH ni Spotify y no persigue metas de matrícula. Todo eso pertenece al arranque del próximo ciclo, no a la ventana de sostenimiento.</p>
+            </div>
+          </div>
+          <div class="callout" style="margin-top:22px">
+            <h3>Por qué septiembre juega a favor</h3>
+            <p>Es el mes <strong>sin festivos</strong> del calendario colombiano y el último tramo barato antes de que la inflación de Q4 empuje los CPM. Además abre la ventana en la que los bachilleres de grado 11 empiezan a decidir qué estudiar. La única distorsión del mes es <strong>Amor y Amistad</strong>, el sábado 19: esa semana el mismo dinero compra menos alcance, y el plan lo asume en lugar de perseguirlo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · Principio -->
+    <section class="slide" data-title="Principio: continuidad plana">
+      <div class="slide-inner">
+        <div class="slide-top-section">
+          <div class="slide-title-col"><div class="slide-header"><h2>Arquitectura</h2></div></div>
+          <div class="slide-desc-col">
+            <p class="subtext">Todo prendido al tiempo, presupuesto plano</p>
+            <p class="body-text">Sostenimiento significa presencia sin interrupciones. Los cuatro frentes corren en paralelo con presupuesto diario fijo, y no se rota quién está al aire: nada de una semana video y otra semana formulario. La única excepción es TikTok, y no por criterio sino por aritmética de plataforma.</p>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="timeline-container">
+            <div class="timeline-item">
+              <div class="timeline-header"><h3>Los tres frentes planos (1–30 sep)</h3><div class="timeline-tags"><span class="tl-tag highlight">Meta General</span><span class="tl-tag highlight">Meta Video</span><span class="tl-tag">Google Search</span></div></div>
+              <p>Presupuesto diario fijo los 30 días, sin picos ni pausas. Meta corre en paralelo su campaña de formulario y su campaña de video, y Google sostiene marca más un genérico acotado. Los tres arrancan el 1 y terminan el 30 sin que nadie tenga que encender o apagar nada a mitad de mes.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-header"><h3>Por qué plano y no por oleadas</h3><div class="timeline-tags"><span class="tl-tag">Aprendizaje estable</span></div></div>
+              <p>Cada encendido reinicia la fase de aprendizaje y desperdicia presupuesto en recalibrar. En un mes de volumen bajo eso se paga caro. Con presupuesto plano el algoritmo trabaja con una señal continua, la frecuencia se reparte a lo largo del mes en vez de concentrarse, y el alcance único termina siendo mayor con la misma plata.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-header"><h3>La excepción: TikTok no puede ir 30 días</h3><div class="timeline-tags"><span class="tl-tag">Mínimo de plataforma</span></div></div>
+              <p>TikTok exige un mínimo diario por conjunto del orden de <strong>USD 20/día</strong>. Sostenerlo los 30 días cuesta cerca de <strong>$2.400.000</strong>: el 96% de todo el escenario A y casi la mitad del B. No es viable. Por eso TikTok va en <strong>una sola ventana continua</strong> al cierre del mes, no en pedacitos repartidos.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-header"><h3>Estructura mínima de cuenta</h3><div class="timeline-tags"><span class="tl-tag">4 campañas</span></div></div>
+              <p>Cuatro campañas y cinco o seis conjuntos en total, todas programadas de una vez con fecha de inicio y fin. Cero apertura por programa y cero apertura por sede: toda la señal de conversión se concentra en pocas unidades para que el algoritmo tenga con qué optimizar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · Calendario -->
+    <section class="slide" data-title="Calendario de septiembre">
+      <div class="slide-inner">
+        <div class="slide-top-section">
+          <div class="slide-title-col"><div class="slide-header"><h2>Calendario</h2></div></div>
+          <div class="slide-desc-col">
+            <p class="subtext">Quién está prendido y cuándo · escenario <span class="only-a">A · $2,5M</span><span class="only-b">B · $5,0M</span></p>
+            <p class="body-text">Tres barras continuas de punta a punta. La única que no cubre el mes completo es TikTok, y va en un solo bloque seguido al cierre.</p>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="scn-hint">Estás viendo el <strong class="only-a">escenario A · $2.500.000</strong><strong class="only-b">escenario B · $5.000.000</strong>. Cambia con el selector inferior para ver el otro escenario.</div>
+          <div class="cal">
+            <div class="cal-h">Lun</div><div class="cal-h">Mar</div><div class="cal-h">Mié</div><div class="cal-h">Jue</div><div class="cal-h">Vie</div><div class="cal-h">Sáb</div><div class="cal-h">Dom</div>
+            <div class="cal-d empty"></div>
+            <div class="cal-d"><div class="cal-n">1</div><div class="cal-t">Arranque</div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+            <div class="cal-d"><div class="cal-n">2</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+            <div class="cal-d"><div class="cal-n">3</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+            <div class="cal-d"><div class="cal-n">4</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+            <div class="cal-d"><div class="cal-n">5</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+            <div class="cal-d"><div class="cal-n">6</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+
+            <div class="cal-d"><div class="cal-n">7</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+            <div class="cal-d"><div class="cal-n">8</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+            <div class="cal-d"><div class="cal-n">9</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+            <div class="cal-d"><div class="cal-n">10</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+            <div class="cal-d"><div class="cal-n">11</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+            <div class="cal-d"><div class="cal-n">12</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+            <div class="cal-d"><div class="cal-n">13</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+
+            <div class="cal-d"><div class="cal-n">14</div><div class="cal-t">CPM al alza</div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+            <div class="cal-d"><div class="cal-n">15</div><div class="cal-t">Corte 1</div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+            <div class="cal-d"><div class="cal-n">16</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+            <div class="cal-d"><div class="cal-n">17</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+            <div class="cal-d"><div class="cal-n">18</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+            <div class="cal-d fest"><div class="cal-n">19</div><div class="cal-t">Amor y Amistad</div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+            <div class="cal-d"><div class="cal-n">20</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span></div></div>
+
+            <div class="cal-d"><div class="cal-n">21</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span><span class="cal-b ttk only-b"></span></div></div>
+            <div class="cal-d"><div class="cal-n">22</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span><span class="cal-b ttk only-b"></span></div></div>
+            <div class="cal-d"><div class="cal-n">23</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span><span class="cal-b ttk only-b"></span></div></div>
+            <div class="cal-d"><div class="cal-n">24</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span><span class="cal-b ttk only-b"></span></div></div>
+            <div class="cal-d"><div class="cal-n">25</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span><span class="cal-b ttk only-b"></span></div></div>
+            <div class="cal-d"><div class="cal-n">26</div><div class="cal-t">Entra TikTok</div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span><span class="cal-b ttk"></span></div></div>
+            <div class="cal-d"><div class="cal-n">27</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span><span class="cal-b ttk"></span></div></div>
+
+            <div class="cal-d"><div class="cal-n">28</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span><span class="cal-b ttk"></span></div></div>
+            <div class="cal-d"><div class="cal-n">29</div><div class="cal-t"></div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span><span class="cal-b ttk"></span></div></div>
+            <div class="cal-d fest"><div class="cal-n">30</div><div class="cal-t">Cierre de mes</div><div class="cal-bars"><span class="cal-b metac"></span><span class="cal-b goog"></span><span class="cal-b metap"></span><span class="cal-b ttk"></span></div></div>
+            <div class="cal-d empty"></div><div class="cal-d empty"></div><div class="cal-d empty"></div><div class="cal-d empty"></div>
+          </div>
+          <div class="cal-legend">
+            <div><span class="k" style="background:#FFC000"></span>Meta · Captación general</div>
+            <div><span class="k" style="background:#111"></span>Google · Search</div>
+            <div><span class="k" style="background:#9E7B00"></span>Meta · Posicionamiento</div>
+            <div><span class="k" style="background:#8C8C8C"></span>TikTok · Posicionamiento</div>
+          </div>
+          <p class="source-note">Meta captación, Meta posicionamiento y Google Search corren del 1 al 30 en los dos escenarios. TikTok: del 26 al 30 en el escenario A y del 21 al 30 en el B, siempre en bloque continuo. Septiembre 2026 no tiene festivos en Colombia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · Comparativo A vs B -->
+    <section class="slide" data-title="Los dos escenarios">
+      <div class="slide-inner">
+        <div class="slide-top-section">
+          <div class="slide-title-col"><div class="slide-header"><h2>A vs B</h2></div></div>
+          <div class="slide-desc-col">
+            <p class="subtext">Dos opciones de presupuesto sobre la misma arquitectura</p>
+            <p class="body-text">Esta lámina muestra los dos escenarios en paralelo, sin filtro. Las láminas siguientes desarrollan el escenario que esté seleccionado en el interruptor inferior.</p>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="table-wrap">
+            <table class="cmp">
+              <thead><tr><th>Frente</th><th class="scnA right">Escenario A · $2.500.000</th><th class="scnB right">Escenario B · $5.000.000</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Meta · Captación general</strong><br><small>Always-on</small></td><td class="scnA right">$1.000.000 · 30 días<br><small>$33.300/día</small></td><td class="right">$2.050.000 · 30 días<br><small>$68.300/día</small></td></tr>
+                <tr><td><strong>Google · Search</strong><br><small>Always-on</small></td><td class="scnA right">$625.000 · 30 días<br><small>$20.800/día</small></td><td class="right">$1.250.000 · 30 días<br><small>$41.700/día</small></td></tr>
+                <tr><td><strong>Meta · Posicionamiento</strong><br><small>Always-on</small></td><td class="scnA right">$475.000 · 30 días<br><small>$15.800/día</small></td><td class="right">$900.000 · 30 días<br><small>$30.000/día</small></td></tr>
+                <tr><td><strong>TikTok · Posicionamiento</strong><br><small>Bloque continuo</small></td><td class="scnA right">$400.000 · 5 días<br><small>26–30 · $80.000/día</small></td><td class="right">$800.000 · 10 días<br><small>21–30 · $80.000/día</small></td></tr>
+                <tr><td><strong>Días de mes cubiertos</strong></td><td class="scnA right">3 frentes al 100%<br><small>TikTok 17% del mes</small></td><td class="right">3 frentes al 100%<br><small>TikTok 33% del mes</small></td></tr>
+                <tr><td><strong>Reparto</strong></td><td class="scnA right">Captación 65% · Posicionamiento 35%</td><td class="right">Captación 66% · Posicionamiento 34%</td></tr>
+                <tr><td><strong>Leads proyectados</strong></td><td class="scnA right"><strong>~135</strong> <small>(105–170)</small></td><td class="right"><strong>~274</strong> <small>(215–345)</small></td></tr>
+                <tr><td><strong>CPL combinado</strong></td><td class="scnA right">$12.000</td><td class="right">$12.000</td></tr>
+                <tr><td><strong>Alcance de posicionamiento</strong></td><td class="scnA right">~124.000</td><td class="right">~221.000</td></tr>
+                <tr><td><strong>Pool para el último trimestre</strong></td><td class="scnA right">~37.000</td><td class="right">~72.000</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="cards-3" style="margin-top:22px">
+            <div class="flat-card"><h3>Qué compra el salto de $2,5M a $5M</h3><p style="font-size:.88rem;font-weight:300">Los tres frentes planos ya cubren el mes completo en los dos escenarios: lo que B compra es <strong>peso diario</strong>, el doble en captación y en video de Meta, más el doble de días continuos de TikTok.</p></div>
+            <div class="flat-card"><h3>Lo que solo existe en el escenario B</h3><p style="font-size:.88rem;font-weight:300">Segundo conjunto de remarketing en la captación de Meta, tercer grupo de anuncios en Google por programas de mayor demanda y una ventana de TikTok de un tercio del mes en vez de una sexta parte.</p></div>
+            <div class="flat-card"><h3>Lo que no cambia</h3><p style="font-size:.88rem;font-weight:300">El banco de 7 piezas, la ausencia de apertura por programa o sede, el CPL combinado de $12.000 y el hecho de que ninguno de los dos escenarios es un plan de cobertura de marca.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 · Detalle del escenario -->
+    <section class="slide" data-title="Detalle de inversión">
+      <div class="slide-inner">
+        <div class="slide-top-section">
+          <div class="slide-title-col"><div class="slide-header"><h2>Inversión</h2></div></div>
+          <div class="slide-desc-col">
+            <p class="subtext">Escenario <span class="only-a">A · $2.500.000</span><span class="only-b">B · $5.000.000</span></p>
+            <p class="body-text only-a">Dos tercios a captación y un tercio a posicionamiento, con los tres frentes de Meta y Google al aire los 30 días y TikTok concentrado en la última semana.</p>
+            <p class="body-text only-b">La misma cobertura de 30 días con el doble de diario en cada frente, TikTok en el último tercio del mes y una segunda capa de remarketing en la captación de Meta.</p>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="scn-hint">Estás viendo el <strong class="only-a">escenario A · $2.500.000</strong><strong class="only-b">escenario B · $5.000.000</strong>. Cambia con el selector inferior para ver el otro escenario.</div>
+          <div class="only-a">
+            <div class="bud-row"><div class="lbl"><strong>Meta · Captación general</strong><small>1–30 sep · $33.300/día</small></div><div class="bud-track"><div class="bud-fill" style="--w:100%"></div></div><div class="amt">$1.000.000</div><div class="pct2">40%</div></div>
+            <div class="bud-row"><div class="lbl"><strong>Google · Search</strong><small>1–30 sep · $20.800/día</small></div><div class="bud-track"><div class="bud-fill goog" style="--w:62.5%"></div></div><div class="amt">$625.000</div><div class="pct2">25%</div></div>
+            <div class="bud-row"><div class="lbl"><strong>Meta · Posicionamiento</strong><small>1–30 sep · $15.800/día</small></div><div class="bud-track"><div class="bud-fill metap" style="--w:47.5%"></div></div><div class="amt">$475.000</div><div class="pct2">19%</div></div>
+            <div class="bud-row"><div class="lbl"><strong>TikTok · Posicionamiento</strong><small>26–30 sep · $80.000/día · mínimo de plataforma</small></div><div class="bud-track"><div class="bud-fill ttk" style="--w:40%"></div></div><div class="amt">$400.000</div><div class="pct2">16%</div></div>
+            <div class="bud-total"><div>Total septiembre</div><div><small style="font-weight:400;color:var(--gris-medio)">Captación 65% · Posicionamiento 35%</small></div><div class="amt">$2.500.000</div><div class="pct2">100%</div></div>
+          </div>
+          <div class="only-b">
+            <div class="bud-row"><div class="lbl"><strong>Meta · Captación general</strong><small>1–30 sep · $68.300/día</small></div><div class="bud-track"><div class="bud-fill" style="--w:100%"></div></div><div class="amt">$2.050.000</div><div class="pct2">41%</div></div>
+            <div class="bud-row"><div class="lbl"><strong>Google · Search</strong><small>1–30 sep · $41.700/día</small></div><div class="bud-track"><div class="bud-fill goog" style="--w:61%"></div></div><div class="amt">$1.250.000</div><div class="pct2">25%</div></div>
+            <div class="bud-row"><div class="lbl"><strong>Meta · Posicionamiento</strong><small>1–30 sep · $30.000/día</small></div><div class="bud-track"><div class="bud-fill metap" style="--w:44%"></div></div><div class="amt">$900.000</div><div class="pct2">18%</div></div>
+            <div class="bud-row"><div class="lbl"><strong>TikTok · Posicionamiento</strong><small>21–30 sep · $80.000/día · mínimo de plataforma</small></div><div class="bud-track"><div class="bud-fill ttk" style="--w:39%"></div></div><div class="amt">$800.000</div><div class="pct2">16%</div></div>
+            <div class="bud-total"><div>Total septiembre</div><div><small style="font-weight:400;color:var(--gris-medio)">Captación 66% · Posicionamiento 34%</small></div><div class="amt">$5.000.000</div><div class="pct2">100%</div></div>
+          </div>
+          <div class="callout" style="margin-top:20px">
+            <h3>El diario de TikTok no es negociable hacia abajo</h3>
+            <p>Los $80.000/día son el piso de la plataforma, no una decisión de reparto. Si se reparte ese mismo dinero entre 30 días queda por debajo del mínimo y <strong>la campaña simplemente no entrega</strong>. Por eso la variable que se ajusta en TikTok son los días, no el diario: <span class="only-a">5 días continuos en este escenario.</span><span class="only-b">10 días continuos en este escenario.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 · Rol por medio -->
+    <section class="slide" data-title="Rol de cada medio">
+      <div class="slide-inner">
+        <div class="slide-top-section">
+          <div class="slide-title-col"><div class="slide-header"><h2>Medios</h2></div></div>
+          <div class="slide-desc-col">
+            <p class="subtext">Configuración operativa por frente</p>
+            <p class="body-text">Cada frente tiene un rol distinto y un KPI distinto. Mezclar los KPIs entre capas es el error clásico de una campaña de sostenimiento: el posicionamiento no se mide por CPL.</p>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="mix-interactive">
+            <div class="mix-tabs">
+              <button class="mix-tab active" onclick="showMix('metac', this)">Meta · Captación <span class="pct only-a">40%</span><span class="pct only-b">41%</span></button>
+              <button class="mix-tab" onclick="showMix('goog', this)">Google · Search <span class="pct">25%</span></button>
+              <button class="mix-tab" onclick="showMix('metap', this)">Meta · Posicionam. <span class="pct only-a">19%</span><span class="pct only-b">18%</span></button>
+              <button class="mix-tab" onclick="showMix('ttk', this)">TikTok <span class="pct">16%</span></button>
+            </div>
+            <div class="mix-panel-container">
+              <div class="mix-panel active" id="mix-metac">
+                <div class="panel-header-badge"><span class="only-a">$1.000.000</span><span class="only-b">$2.050.000</span></div>
+                <h3>Campaña general de formulario · 1 al 30 de septiembre</h3>
+                <div class="panel-grid">
+                  <div class="panel-box"><h5>Estructura</h5><p><span class="only-a">Una campaña, un conjunto abierto: Valle de Aburrá y Rionegro, 17–45 años, sin segmentación por interés.</span><span class="only-b">Una campaña, dos conjuntos: abierto y remarketing con reproductores de video, engagers, tráfico web y base de leads no matriculados de 2026-2.</span></p></div>
+                  <div class="panel-box"><h5>Objetivo</h5><p>Clientes potenciales con formulario instantáneo. Se conserva el formulario corto vigente desde el 30 de junio, sin volver a las preguntas de perfilamiento.</p></div>
+                  <div class="panel-box"><h5>Piezas</h5><p>Las 2 estáticas y el carrusel, las tres al aire todo el mes compitiendo dentro del mismo conjunto.</p></div>
+                  <div class="panel-box"><h5>KPI</h5><p>CPL y contactabilidad. Referencia histórica de las campañas generales de 2026-2: <strong>$11.524</strong> de CPL promedio.</p></div>
+                </div>
+              </div>
+              <div class="mix-panel" id="mix-goog">
+                <div class="panel-header-badge"><span class="only-a">$625.000</span><span class="only-b">$1.250.000</span></div>
+                <h3>Defensa de marca y captura de intención · 1 al 30 de septiembre</h3>
+                <div class="panel-grid">
+                  <div class="panel-box"><h5>Estructura</h5><p><span class="only-a">Una campaña de Search con dos grupos: marca y un genérico acotado de técnico laboral en Medellín, Bello y Rionegro.</span><span class="only-b">Una campaña de Search con tres grupos: marca, genérico y un grupo con los programas de mayor demanda histórica.</span></p></div>
+                  <div class="panel-box"><h5>Por qué nunca se apaga</h5><p>Es el frente más barato de sostener y el único que captura intención activa. Apagarlo entre ciclos entrega la búsqueda de marca a la competencia justo cuando arranca la ventana de decisión de grado 11.</p></div>
+                  <div class="panel-box"><h5>Piezas</h5><p>Ninguna del banco. Solo anuncios de búsqueda responsivos y extensiones: es el único frente que no depende de las 7 piezas.</p></div>
+                  <div class="panel-box"><h5>KPI</h5><p>CPL por grupo, cuota de impresiones de marca y porcentaje de búsquedas perdidas por presupuesto.</p></div>
+                </div>
+              </div>
+              <div class="mix-panel" id="mix-metap">
+                <div class="panel-header-badge"><span class="only-a">$475.000</span><span class="only-b">$900.000</span></div>
+                <h3>Video vertical al aire los 30 días</h3>
+                <div class="panel-grid">
+                  <div class="panel-box"><h5>Estructura</h5><p>Una campaña de reproducciones de video (ThruPlay), un conjunto, ubicaciones Reels, Stories y Feed. Del 1 al 30 a <span class="only-a">$15.800/día.</span><span class="only-b">$30.000/día.</span></p></div>
+                  <div class="panel-box"><h5>Qué significa ese diario</h5><p>Cerca de <span class="only-a">3.000</span><span class="only-b">5.800</span> impresiones diarias. Es una presencia de goteo, no un pico: el valor está en que no hay un solo día del mes sin entrega.</p></div>
+                  <div class="panel-box"><h5>Entregable real</h5><p>La audiencia de reproductores al 25% y al 50%, lista para alimentar el remarketing del último trimestre. Ese es el activo que sobrevive al mes.</p></div>
+                  <div class="panel-box"><h5>KPI</h5><p>Alcance único, frecuencia acumulada con techo de 2,5 en el mes, tasa de ThruPlay y tamaño del pool al 30 de septiembre.</p></div>
+                </div>
+              </div>
+              <div class="mix-panel" id="mix-ttk">
+                <div class="panel-header-badge"><span class="only-a">$400.000</span><span class="only-b">$800.000</span></div>
+                <h3>Bloque continuo de cierre <span class="only-a">· 26 al 30</span><span class="only-b">· 21 al 30</span></h3>
+                <div class="panel-grid">
+                  <div class="panel-box"><h5>Estructura</h5><p>Presupuesto de campaña sin límite y control a nivel de conjunto, a $80.000/día para respetar el mínimo. Un solo bloque seguido, sin cortes intermedios.</p></div>
+                  <div class="panel-box"><h5>Por qué al cierre</h5><p>Queda después del pico de Amor y Amistad y empalma directo con octubre, de modo que la audiencia que construye llega caliente al último trimestre en vez de enfriarse.</p></div>
+                  <div class="panel-box"><h5>Piezas</h5><p><span class="only-a">Los 3 videos verticales de mejor retención.</span><span class="only-b">Los 4 videos en el mismo conjunto.</span> Referencia de CPM histórico en la cuenta: <strong>$3.350</strong>.</p></div>
+                  <div class="panel-box"><h5>Si el mínimo real es menor</h5><p>Vale verificarlo en la cuenta: si el piso por conjunto resulta más bajo, el bloque se estira a más días con el mismo total. La regla es alargar días, nunca bajar el diario por debajo del mínimo.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="source-note">CPL y CPM de referencia tomados de los cierres TECPER 2026-2 de Meta y TikTok. Google no tiene histórico cargado en el repositorio: sus cifras son estimación.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 · Banco de piezas -->
+    <section class="slide" data-title="Banco de piezas">
+      <div class="slide-inner">
+        <div class="slide-top-section">
+          <div class="slide-title-col"><div class="slide-header"><h2>Piezas</h2></div></div>
+          <div class="slide-desc-col">
+            <p class="subtext">7 activos vigentes · sin producción nueva</p>
+            <p class="body-text">La ruta trabaja con lo que ya está aprobado. Lo que se define aquí no es el mensaje sino el destino: qué pieza va a qué capa, en qué formato y con qué criterio de rotación.</p>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="asset-grid">
+            <div class="asset-card video"><span class="fmt">Video 01</span><h4>Posicionamiento</h4><p>Meta ThruPlay 9:16 los 30 días · TikTok en el bloque de cierre.</p></div>
+            <div class="asset-card video"><span class="fmt">Video 02</span><h4>Posicionamiento</h4><p>Meta ThruPlay 9:16 los 30 días · TikTok en el bloque de cierre.</p></div>
+            <div class="asset-card video"><span class="fmt">Video 03</span><h4>Posicionamiento</h4><p>Meta ThruPlay y TikTok. Prioritario en TikTok por formato nativo.</p></div>
+            <div class="asset-card video"><span class="fmt">Video 04</span><h4>Posicionamiento</h4><p>Meta ThruPlay<span class="only-b"> y TikTok</span><span class="only-a">. Reserva para relevar a la pieza que primero se fatigue</span>.</p></div>
+            <div class="asset-card est"><span class="fmt">Estática 01</span><h4>Captación</h4><p>Anuncio principal de la campaña general de Meta, en 4:5 y 1:1.</p></div>
+            <div class="asset-card est"><span class="fmt">Estática 02</span><h4>Captación</h4><p>Variante en el mismo conjunto para lectura comparada de CTR.</p></div>
+            <div class="asset-card car"><span class="fmt">Carrusel</span><h4>Captación</h4><p>Portafolio de programas dentro de la campaña general de Meta.</p></div>
+            <div class="asset-card" style="border-left-color:#ccc"><span class="fmt">Google Search</span><h4>Sin pieza</h4><p>Solo anuncios responsivos y extensiones. No consume banco.</p></div>
+          </div>
+          <div class="next-note" style="margin-top:22px">
+            <div class="callout-mini"><h3>La continuidad juega a favor del inventario</h3><p>Al repartir el mismo dinero en 30 días, la frecuencia se acumula lento: el techo de 2,5 se alcanza al final del mes y no en la primera semana. Siete piezas rinden mucho mejor en goteo que concentradas en unos pocos días.</p></div>
+            <div class="callout-mini"><h3>Regla de rotación</h3><p>Todas las piezas de una capa conviven en un mismo conjunto y compiten entre sí. Si una supera frecuencia 3 y su CTR cae más de 30% frente a su propio arranque, se pausa esa pieza y las demás absorben la entrega. No se apaga la campaña.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 · Proyección -->
+    <section class="slide" data-title="Proyección">
+      <div class="slide-inner">
+        <div class="slide-top-section">
+          <div class="slide-title-col"><div class="slide-header"><h2>Proyección</h2></div></div>
+          <div class="slide-desc-col">
+            <p class="subtext">Escenario <span class="only-a">A · $2.500.000</span><span class="only-b">B · $5.000.000</span></p>
+            <p class="body-text">Proyección construida sobre el CPL real de las campañas generales de 2026-2 y el CPM real de TikTok. Las cifras de Google son estimación sin histórico de cuenta.</p>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="stats-grid only-a">
+            <div class="stat-card"><span class="stat-val">~135</span><span class="stat-label">Leads totales</span><span class="stat-note">Rango 105 – 170</span></div>
+            <div class="stat-card"><span class="stat-val">$12,0K</span><span class="stat-label">CPL combinado</span><span class="stat-note">Meta + Google</span></div>
+            <div class="stat-card"><span class="stat-val">~124K</span><span class="stat-label">Alcance posicionam.</span><span class="stat-note">Meta + TikTok, con solape</span></div>
+            <div class="stat-card"><span class="stat-val">~37K</span><span class="stat-label">Pool para Q4</span><span class="stat-note">Reproductores y engagers</span></div>
+          </div>
+          <div class="stats-grid only-b">
+            <div class="stat-card"><span class="stat-val">~274</span><span class="stat-label">Leads totales</span><span class="stat-note">Rango 215 – 345</span></div>
+            <div class="stat-card"><span class="stat-val">$12,0K</span><span class="stat-label">CPL combinado</span><span class="stat-note">Meta + Google</span></div>
+            <div class="stat-card"><span class="stat-val">~221K</span><span class="stat-label">Alcance posicionam.</span><span class="stat-note">Meta + TikTok, con solape</span></div>
+            <div class="stat-card"><span class="stat-val">~72K</span><span class="stat-label">Pool para Q4</span><span class="stat-note">Reproductores y engagers</span></div>
+          </div>
+          <div class="table-wrap" style="margin-top:22px">
+            <table>
+              <thead><tr><th>Frente</th><th class="right">Inversión</th><th class="right">Días</th><th class="right">Métrica base</th><th class="right">Resultado</th><th>Confianza</th></tr></thead>
+              <tbody class="only-a">
+                <tr><td>Meta · Captación general</td><td class="right">$1.000.000</td><td class="right">30</td><td class="right">CPL $11.500</td><td class="right"><strong>87 leads</strong><br><small>71 – 105</small></td><td><span class="status-pill ok">Histórico propio</span></td></tr>
+                <tr><td>Google · Search</td><td class="right">$625.000</td><td class="right">30</td><td class="right">CPL $13.000</td><td class="right"><strong>48 leads</strong><br><small>34 – 66</small></td><td><span class="status-pill warn">Estimación</span></td></tr>
+                <tr><td>Meta · Posicionamiento</td><td class="right">$475.000</td><td class="right">30</td><td class="right">CPM $5.200</td><td class="right"><strong>~61.000 alcance</strong><br><small>Frec. ~1,5</small></td><td><span class="status-pill ok">Histórico propio</span></td></tr>
+                <tr><td>TikTok · Posicionamiento</td><td class="right">$400.000</td><td class="right">5</td><td class="right">CPM $3.350</td><td class="right"><strong>~63.000 alcance</strong><br><small>Frec. ~1,9</small></td><td><span class="status-pill ok">Histórico propio</span></td></tr>
+                <tr><td><strong>Total</strong></td><td class="right"><strong>$2.500.000</strong></td><td class="right">—</td><td class="right">—</td><td class="right"><strong>135 leads</strong><br><small>105 – 170</small></td><td>—</td></tr>
+              </tbody>
+              <tbody class="only-b">
+                <tr><td>Meta · Captación general</td><td class="right">$2.050.000</td><td class="right">30</td><td class="right">CPL $11.500</td><td class="right"><strong>178 leads</strong><br><small>146 – 216</small></td><td><span class="status-pill ok">Histórico propio</span></td></tr>
+                <tr><td>Google · Search</td><td class="right">$1.250.000</td><td class="right">30</td><td class="right">CPL $13.000</td><td class="right"><strong>96 leads</strong><br><small>68 – 132</small></td><td><span class="status-pill warn">Estimación</span></td></tr>
+                <tr><td>Meta · Posicionamiento</td><td class="right">$900.000</td><td class="right">30</td><td class="right">CPM $5.200</td><td class="right"><strong>~102.000 alcance</strong><br><small>Frec. ~1,7</small></td><td><span class="status-pill ok">Histórico propio</span></td></tr>
+                <tr><td>TikTok · Posicionamiento</td><td class="right">$800.000</td><td class="right">10</td><td class="right">CPM $3.350</td><td class="right"><strong>~119.000 alcance</strong><br><small>Frec. ~2,0</small></td><td><span class="status-pill ok">Histórico propio</span></td></tr>
+                <tr><td><strong>Total</strong></td><td class="right"><strong>$5.000.000</strong></td><td class="right">—</td><td class="right">—</td><td class="right"><strong>274 leads</strong><br><small>215 – 345</small></td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout" style="margin-top:20px">
+            <h3>Cómo leer estos números</h3>
+            <p>El CPL de $11.500 es el promedio real de las tres campañas generales de 2026-2 en Medellín, Bello y Rionegro. Septiembre no carga inflación de CPM, por eso se usa el dato histórico sin castigo adicional. Correr plano en vez de por oleadas no cambia el total de impresiones, pero <strong>baja la frecuencia y sube el alcance único</strong>: el mismo dinero le llega a más gente distinta. Duplicar la inversión tampoco mejora el CPL combinado: mueve el resultado en volumen, no en eficiencia.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 · Riesgos -->
+    <section class="slide" data-title="Riesgos y decisiones">
+      <div class="slide-inner">
+        <div class="slide-top-section">
+          <div class="slide-title-col"><div class="slide-header"><h2>Riesgos</h2></div></div>
+          <div class="slide-desc-col">
+            <p class="subtext">Lo que puede invalidar el plan</p>
+            <p class="body-text">Seis puntos para cerrar antes de activar. Los dos primeros son bloqueantes: sin ellos resueltos, la ruta no debería salir.</p>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="cards-3">
+            <div class="flat-card">
+              <span class="tag light">Bloqueante</span>
+              <h3>¿Qué se le ofrece al lead de septiembre?</h3>
+              <p style="font-size:.88rem;font-weight:300">2026-2 cerró matrículas el 27 de julio y la extensión venció el 5 de agosto. Si no hay oferta vigente para matricular ya, el lead de septiembre es para el próximo ciclo y necesita ruta de nutrición, no llamada de cierre. <strong>Decisión requerida:</strong> confirmar qué se promete en el formulario y quién hace el seguimiento largo.</p>
+            </div>
+            <div class="flat-card">
+              <span class="tag light">Bloqueante</span>
+              <h3>Solo quedan 2 días hábiles</h3>
+              <p style="font-size:.88rem;font-weight:300">Hoy es viernes 28 de agosto: para arrancar el martes 1 quedan el lunes 31 y el mismo martes. <strong>Alternativa:</strong> si el visto bueno no sale a más tardar el lunes, arrancar el lunes 7 y correr los tres frentes planos del 7 al 30, con el mismo total repartido en 24 días.</p>
+            </div>
+            <div class="flat-card">
+              <span class="tag light">Crítico</span>
+              <h3>Mínimo diario de TikTok</h3>
+              <p style="font-size:.88rem;font-weight:300">Sostener TikTok los 30 días cuesta unos $2.400.000: el 96% del escenario A. <strong>Decisión requerida:</strong> verificar el mínimo vigente en la cuenta. Si es más bajo de lo previsto, el bloque se estira a más días con el mismo total; si es más alto, se acorta. Lo que nunca se hace es bajar el diario.</p>
+            </div>
+            <div class="flat-card">
+              <span class="tag gray">Medio</span>
+              <h3>Diario bajo en Meta posicionamiento</h3>
+              <p style="font-size:.88rem;font-weight:300"><span class="only-a">$15.800</span><span class="only-b">$30.000</span> al día entregan un goteo de <span class="only-a">unas 3.000</span><span class="only-b">unas 5.800</span> impresiones diarias. <strong>Expectativa a alinear:</strong> es continuidad, no cobertura. Nadie debería esperar notoriedad de marca con esta capa; su producto es el pool de audiencia.</p>
+            </div>
+            <div class="flat-card">
+              <span class="tag gray">Medio</span>
+              <h3>Google sin histórico</h3>
+              <p style="font-size:.88rem;font-weight:300">No hay reportes de Google Ads en el repositorio, así que su CPL es estimación. <strong>Acción:</strong> primer corte el 15 de septiembre para reemplazar la estimación con dato real y redistribuir si el genérico se dispara.</p>
+            </div>
+            <div class="flat-card">
+              <span class="tag gray">Bajo</span>
+              <h3>Amor y Amistad y ruido de lectura</h3>
+              <p style="font-size:.88rem;font-weight:300">La semana del 14 al 21 el CPM sube y el diario plano compra menos alcance. <strong>Acción:</strong> no compensar con más presupuesto ni con pausas. Dos cortes en el mes, el 15 y el 30; optimizar con datos de siete días en sostenimiento es optimizar contra ruido.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · Siguientes pasos -->
+    <section class="slide" data-title="Siguientes pasos">
+      <div class="slide-inner">
+        <div class="slide-top-section">
+          <div class="slide-title-col"><div class="slide-header"><h2>Ejecución</h2></div></div>
+          <div class="slide-desc-col">
+            <p class="subtext">Del visto bueno al 1 de septiembre</p>
+            <p class="body-text">Seis pasos para dejar la campaña activa el 1 de septiembre y cerrar el mes con la audiencia lista para el empujón del último trimestre.</p>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="steps-grid">
+            <div class="step-card"><div class="step-number">01</div><h3>Elegir escenario</h3><p>Definir si se trabaja sobre $2,5M o $5M. La estructura de campañas es la misma; lo que cambia son los diarios y los días continuos de TikTok.</p></div>
+            <div class="step-card"><div class="step-number">02</div><h3>Confirmar la oferta</h3><p>Cerrar qué se le promete al lead de septiembre y quién lo gestiona. De esta respuesta depende el texto del formulario y el criterio con el que se juzga el CPL del mes.</p></div>
+            <div class="step-card"><div class="step-number">03</div><h3>Adaptar las 7 piezas</h3><p>Exportar los 4 videos en 9:16 y los estáticos en 4:5 y 1:1 verificando zonas seguras. Sin producción nueva ni ajustes de mensaje.</p></div>
+            <div class="step-card"><div class="step-number">04</div><h3>Montar y programar</h3><p>Cuatro campañas con nomenclatura estandarizada, formulario corto vigente, UTMs y fechas de inicio y fin cargadas de una vez. Una vez arriba, nadie enciende ni apaga nada a mitad de mes.</p></div>
+            <div class="step-card"><div class="step-number">05</div><h3>Corte del 15 de septiembre</h3><p>Único ajuste intermedio: validar CPL real de Google, frecuencia acumulada en Meta y confirmar el diario de TikTok antes de que entre su bloque.</p></div>
+            <div class="step-card"><div class="step-number">06</div><h3>Entrega del 30 de septiembre</h3><p>Cerrar el mes con las audiencias de reproductores, engagers y tráfico ya creadas y nombradas, listas para que octubre las use el primer día en lugar de construirlas.</p></div>
+          </div>
+          <div class="next-note">
+            <div class="callout-mini"><h3>Decisiones que bloquean el arranque</h3><p>Escenario de presupuesto, oferta vigente para el lead de septiembre y confirmación del mínimo diario en TikTok. Las tres se necesitan a más tardar el lunes 31 de agosto.</p></div>
+            <div class="callout-mini"><h3>Criterio de éxito del mes</h3><p>No es el número de leads. Es llegar al 1 de octubre sin un solo día de apagón en Meta y Google, y con un pool de remarketing listo para trabajar desde el primer día.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="scn-dock">
+    <span class="scn-label">Escenario de presupuesto</span>
+    <div class="scn-switch">
+      <button id="scnA" class="active" onclick="setScn('a')">A · $2,5M</button>
+      <button id="scnB" onclick="setScn('b')">B · $5,0M</button>
+    </div>
+  </div>
+
+  <div class="nav-controls">
+    <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">Anterior</button>
+    <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Siguiente</button>
+  </div>
+  <div class="slide-counter" id="slideCounter"></div>
+  <div class="progress-bar" id="progressBar"></div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    let currentSlide = 0;
+
+    function updateSlide() {
+      slides.forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+      document.getElementById('prevBtn').disabled = currentSlide === 0;
+      document.getElementById('nextBtn').disabled = currentSlide === slides.length - 1;
+      document.getElementById('progressBar').style.width = ((currentSlide + 1) / slides.length) * 100 + '%';
+      document.getElementById('slideCounter').textContent = (currentSlide + 1) + ' / ' + slides.length;
+    }
+    function changeSlide(dir) {
+      const next = currentSlide + dir;
+      if (next >= 0 && next < slides.length) { currentSlide = next; updateSlide(); }
+    }
+    function goToSlide(i) { currentSlide = i; updateSlide(); toggleIndex(false); }
+    function toggleIndex(force) {
+      const modal = document.getElementById('indexModal');
+      const open = typeof force === 'boolean' ? force : !modal.classList.contains('open');
+      modal.classList.toggle('open', open);
+    }
+    function buildIndex() {
+      const list = document.getElementById('indexList');
+      slides.forEach((s, i) => {
+        const li = document.createElement('li');
+        li.textContent = String(i + 1).padStart(2, '0') + ' · ' + s.dataset.title;
+        li.onclick = () => goToSlide(i);
+        list.appendChild(li);
+      });
+    }
+    function showMix(id, btn) {
+      document.querySelectorAll('.mix-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.mix-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('mix-' + id).classList.add('active');
+    }
+    function setScn(s) {
+      document.body.dataset.scn = s;
+      document.getElementById('scnA').classList.toggle('active', s === 'a');
+      document.getElementById('scnB').classList.toggle('active', s === 'b');
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+      if (e.key === 'Escape') toggleIndex(false);
+      if (e.key === 'a' || e.key === 'A') setScn('a');
+      if (e.key === 'b' || e.key === 'B') setScn('b');
+    });
+    buildIndex();
+    updateSlide();
+  </script>
+</body>
+</html>

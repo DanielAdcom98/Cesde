@@ -5,6 +5,7 @@ Mini-landing de presentación estratégica de pauta digital para CESDE.
 ## URLs (GitHub Pages)
 - **Inicio:** `/index.html`
 - **Ruta estratégica:** `/ruta.html`
+- **Ruta de sostenimiento septiembre:** `/ruta-sostenimiento-septiembre.html`
 - **Línea de tiempo TECPER:** `/linea-de-tiempo-tecper.html`
 - **Reporte implementación:** `/pages/reporte-implementacion.html`
 - **Privacidad:** `/privacy.html` *(requerida por Meta App Review)*
@@ -26,6 +27,7 @@ pages/
   reporte-implementacion.html
 index.html
 ruta.html
+ruta-sostenimiento-septiembre.html
 linea-de-tiempo-tecper.html
 privacy.html
 terms.html
