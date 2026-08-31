@@ -1,0 +1,46 @@
+PROGRAMA-A-PROGRAMA · CIERRE (inversion x1.4) vs PROYECTADO
+SEDE      PROGRAMA                                    META     INV PLAN     INV REAL   %INV LD PLAN LD REAL    %LD  CPL PLAN  CPL REAL
+Medellín  Asistente en Desarrollo de Software          315   13.900.000    7.443.243    54%    3500    1514    43%     3.971     4.916
+Medellín  Asistente Administrativo                     210    9.200.000    7.062.678    77%    2333    1064    46%     3.943     6.638
+Medellín  Asistente en Diseño Gráfico                  210    9.200.000    7.479.681    81%    2333     792    34%     3.943     9.444
+Medellín  Arte Culinario                               208    9.200.000    4.686.080    51%    2311    1099    48%     3.981     4.264
+Medellín  Pastelería y Arte Dulce                      182    8.000.000    3.264.463    41%    2022    1226    61%     3.956     2.663
+Medellín  Asistente en Contaduría                      175    7.700.000    5.717.943    74%    1944     681    35%     3.961     8.396
+Medellín  Auxiliar en Enfermería                       150    6.600.000    3.729.740    57%    1667     656    39%     3.959     5.686
+Medellín  Auxiliar de Talento Humano                   140    6.200.000    5.596.419    90%    1556    1024    66%     3.985     5.465
+Bello     Asistente Administrativo                     120    5.300.000    7.102.550   134%    1333     657    49%     3.976    10.811
+Medellín  Asistente en Comercio Internacional          120    5.300.000    2.472.662    47%    1333     328    25%     3.976     7.539
+Medellín  Asistente en Mercadeo                        105    4.600.000    3.231.514    70%    1167     307    26%     3.942    10.526
+Medellín  Auxiliar Administrativo en Salud             105    4.600.000    1.951.313    42%    1167     406    35%     3.942     4.806
+Medellín  Auxiliar en Servicios Farmacéuticos          105    4.600.000    2.124.332    46%    1167     576    49%     3.942     3.688
+Bello     Asistente en Desarrollo de Software           90    4.000.000    3.407.137    85%    1000     436    44%     4.000     7.815
+Medellín  Asistente en Producción Audiovisual           90    4.000.000    2.389.743    60%    1000     442    44%     4.000     5.407
+Medellín  Auxiliar Publicación Contenidos Digitales     90    4.000.000    2.451.694    61%    1000     363    36%     4.000     6.754
+Rionegro  Auxiliar Administrativo                       90    4.000.000    4.989.054   125%    1000     434    43%     4.000    11.496
+Medellín  Asistente en Electromecánica                  75    3.300.000    1.861.420    56%     833     483    58%     3.962     3.854
+Rionegro  Auxiliar en Diseño Gráfico                    75    3.300.000    3.652.905   111%     833     303    36%     3.962    12.056
+Rionegro  Auxiliar Análisis y Desarrollo de Software    75    3.300.000    3.809.613   115%     833     272    33%     3.962    14.006
+Medellín  Asistente Administrativo - Fast Track         70    3.100.000    3.150.515   102%     778     339    44%     3.985     9.294
+Medellín  Desarrollo de Software - Fast Track           70    3.100.000    3.686.794   119%     778     212    27%     3.985    17.391
+Medellín  Soporte de Sistemas Informáticos              70    3.100.000    2.154.495    69%     778     338    43%     3.985     6.374
+Bello     Asistente en Diseño Gráfico                   60    2.600.000    2.882.096   111%     667     311    47%     3.898     9.267
+Medellín  Asistente en Diseño de Modas                  50    2.200.000    1.335.846    61%     556     439    79%     3.957     3.043
+Medellín  Asistente en Producción Fotográfica           50    2.200.000    1.286.697    58%     556     400    72%     3.957     3.217
+Medellín  Desarrollo de Software (a distancia)          35    1.500.000    1.686.665   112%     389     299    77%     3.856     5.641
+Medellín  Logística de Centros de Distribución          35    1.500.000    1.494.059   100%     389     510   131%     3.856     2.930
+Rionegro  Auxiliar en Comercio Internacional            30    1.300.000    1.472.241   113%     333     118    35%     3.904    12.477
+          SUBTOTAL 29 PROGRAMAS DEL PLAN              3200  140.900.000  103.573.590    74%   35556   16029    45%     3.963     6.462
+
+CAMPANAS REALES FUERA DEL PLAN (transversales / tacticas)
+CAMPANA                                                            INV x1.4   LEADS       CPL
+TECPERFMED - CAMPAÑA FASTRACK CESDE MEDELLÍN 2026-2_Oficial       3.454.664     303    11.402
+1. TECPERFMED - CAMPAÑA GENERAL CESDE MEDELLÍN 2026-2_Oficial     2.557.136     281     9.100
+2. TECPERFBELL - CAMPAÑA GENERAL CESDE BELLO 2026-2_Oficial       2.002.755     174    11.510
+3. TECPERFRIONE - CAMPAÑA GENERAL CESDE RIONERO 2026-2_Oficial    1.859.155     102    18.227
+1. TECPERFMED - Whatsapp 2026-2                                   1.285.676      94    13.677
+2.4 TECPERFBELL - Técnico Laboral en Auxiliar de Seguridad Lab    1.055.292     152     6.943
+1. TECPERFMED - Becas Confama CESDE 2026-2                          569.328       0         -
+1. TECPERFMED - Campaña Prima CESDE 2026-2                          349.656      38     9.201
+SUBTOTAL                                                         13.133.662    1144    11.480
+
+TOTAL TECPER META 37 campanas: inv x1.4 116.707.252 | leads 17.173 | CPL 6.796
